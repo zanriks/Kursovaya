@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style-services.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <a class="header__logo logo" href="/">
+                <span class="logo__text">Шурик</span>
+            </a>
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="/">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/catalog_instrument.html">Каталог</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/about.html">О нас</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/contacts.html">Контакты</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/services.html">Услуги</a></li>
+                </ul>
+            </nav>
+            <div class="header__search search">
+                <input class="search__input" type="text" placeholder="Поиск...">
+            </div>
+            <div class="header__actions actions">
+                <a href="/izbrannoe.html"><button class="actions__icon actions__icon--heart"><img src="img/header-icon/heart.svg" alt=""></button></a>
+                <a href="/profile.html"><button class="actions__icon actions__icon--user"><img src="img/header-icon/profile.svg" alt=""></button></a>
+                <a href="/cart.html"><button class="actions__icon actions__icon--cart"><img src="img/header-icon/cart.svg" alt=""></button></a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <ol class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+            <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
+            <li class="breadcrumbs__item"><span class="breadcrumbs__current">услуги</span></li>
+        </ol>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <h1 class="page-title">Услуги</h1>
+
+    <!-- Основной контент с услугами -->
+    <section class="services-grid">
+        <div class="services-grid__container container">
+            <ul class="services-grid__list">
+                <!-- Первая строка -->
+                <li class="services-grid__item service-card">
+                    <h3 class="service-card__title">Смета онлайн</h3>
+                </li>
+                <li class="services-grid__item service-card">
+                    <h3 class="service-card__title">Сборка мебели</h3>
+                </li>
+
+                <!-- Вторая строка -->
+                <li class="services-grid__item service-card">
+                    <h3 class="service-card__title">Смета онлайн</h3>
+                </li>
+                <li class="services-grid__item service-card">
+                    <h3 class="service-card__title">Сборка мебели</h3>
+                </li>
+
+                <!-- Третья строка -->
+                <li class="services-grid__item service-card">
+                    <h3 class="service-card__title">Смета онлайн</h3>
+                </li>
+                <li class="services-grid__item service-card">
+                    <h3 class="service-card__title">Сборка мебели</h3>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__col footer__col--nav">
+                <h3 class="footer__title">НАВИГАЦИЯ</h3>
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/">Главная</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/contacts">Контакты</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/catalog">Каталог</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/services">Услуги</a></li>
+                </ul>
+            </div>
+            <div class="footer__col footer__col--contacts">
+                <h3 class="footer__title">Свяжитесь с нами</h3>
+                <h4 class="footer__subtitle">E-mail:</h4>
+                <p class="footer__contact">info@shurik.ru</p>
+                <h4 class="footer__subtitle">Служба поддержки:</h4>
+                <p class="footer__contact">+7 (900) 888 88 88</p>
+            </div>
+            <div class="footer__col footer__col--subscribe">
+                <div class="footer__social">
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">VK</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">TELEGRAM</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">WHATSAPP</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">RUTUBE</a></li>
+                    </ul>
+                </div>
+                <div class="footer__subscribe-form">
+                    <input class="footer__subscribe-input" type="email" placeholder="Введите ваш email, чтобы узнавать первым о новинках">
+                    <button class="footer__subscribe-btn" type="submit">→</button>
+                </div>
+                <div class="footer__legal">
+                    <a class="footer__legal-link" href="#">Пользовательское соглашение</a>
+                    <a class="footer__legal-link" href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">© Шурик, 2015-2025 Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
