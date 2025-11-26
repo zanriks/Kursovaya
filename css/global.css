@@ -81,3 +81,48 @@ main, .content {
 .footer__container {
     position: relative;
 }
+
+.breadcrumbs {
+    padding: 40px 0;
+    background-color: #fff;
+}
+
+.breadcrumbs__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.breadcrumbs__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.breadcrumbs__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs__separator {
+    margin: 0 8px;
+    color: #ccc;
+}
+
+.breadcrumbs__link {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumbs__link:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs__current {
+    color: #333;
+    font-weight: bold;
+}

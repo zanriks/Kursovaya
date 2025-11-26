@@ -1,0 +1,252 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.category-page {
+    padding-bottom: 60px;
+}
+
+.category-page__filters {
+    width: 280px;
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filters__group {
+    margin-bottom: 20px;
+}
+
+.filters__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.filters__price-range {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filters__price-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.filters__price-list,
+.filters__manufacturer-list,
+.filters__extra-list {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.filters__price-item,
+.filters__manufacturer-item,
+.filters__extra-item {
+    margin-bottom: 8px;
+}
+
+.filters__price-label,
+.filters__manufacturer-label,
+.filters__extra-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.filters__price-checkbox,
+.filters__manufacturer-checkbox,
+.filters__extra-checkbox {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.filters__show-more {
+    width: 100%;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.filters__show-more:hover {
+    background-color: #e0e0e0;
+}
+
+.filters__all-link {
+    display: block;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.filters__all-link:hover {
+    text-decoration: underline;
+}
+
+.category-page__container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.category-page__products {
+    flex: 1;
+}
+
+.products__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    padding: 15px;
+}
+
+.product-card__badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff5722;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product-card__badge--discount {
+    background-color: #FFE100;
+    color: black;
+    font-size: 12px;
+}
+
+.product-card__price {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-card__price-current {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-card__price-old {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.product-card__name {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0 15px 10px;
+    color: #333;
+    line-height: 1.4;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-card__rating {
+    padding: 0 15px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+.product-card__stars img{
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.product-card__reviews {
+    color: #666;
+}
+
+.product-card__actions {
+    display: flex;
+    padding: 0 15px 15px;
+    gap: 8px;
+}
+
+.product-card__action {
+    padding: 5px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.product-card__action img {
+    width: 20px;
+    height: 20px;
+}
+
+.product-card__action--add {
+    background-color: #4caf50;
+    color: white;
+    flex: 1;
+}
+
+.product-card__action--add:hover {
+    background-color: #45a049;
+}
+
+.product-card__action--favorite {
+    background-color: #f0f0f0;
+    color: #333;
+    width: 70px;
+}
+
+.product-card__action--favorite:hover {
+    background-color: #e0e0e0;
+}
