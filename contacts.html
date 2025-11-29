@@ -35,16 +35,16 @@
         </div>
     </header>
 
-    <nav class="breadcrumbs">
+    <div class="breadcrumbs">
+        <nav class="breadcrumbs__container">
         <ol class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__current">Контакты</span></li>
         </ol>
-    </nav>
-
-    <!-- Заголовок страницы -->
-    <h1 class="page-title">Контакты</h1>
+        <h1 class="page__title">Контакты</h1>
+        </nav>
+    </div>
 
     <!-- Основной контент -->
     <section class="contacts">
@@ -55,7 +55,7 @@
                 <!-- Адрес -->
                 <div class="info-block__item">
                     <h3 class="info-block__label">Адрес</h3>
-                    <p class="info-block__value">Город Кемеров Ул. колёсная 4</p>
+                    <p class="info-block__value">Город Томск Ул. колёсная 4</p>
                 </div>
 
                 <!-- Телефон -->
@@ -86,7 +86,7 @@
 
             <!-- Карта -->
             <div class="contacts__map map">
-                <img class="map__image" src="map-placeholder.jpg" alt="Карта с отметкой магазина в Кемерово">
+                <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/67/tomsk/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Томск</a><a href="https://yandex.ru/maps/geo/tomsk/53117858/?ll=84.988387%2C56.533638&utm_medium=mapframe&utm_source=maps&z=10.99" style="color:#eee;font-size:12px;position:absolute;top:14px;">Томск — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=84.988387%2C56.533638&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1MzExNzg1OBIY0KDQvtGB0YHQuNGPLCDQotC-0LzRgdC6IgoNM-WpQhVG8GFC&z=10.99" width="1000px" height="400" allowfullscreen="true" style="position:relative; border: none; border-radius: 20px;"></iframe></div>
             </div>
         </div>
     </section>
@@ -97,24 +97,25 @@
                 <h3 class="footer__title">НАВИГАЦИЯ</h3>
                 <ul class="footer__nav-list">
                     <li class="footer__nav-item"><a class="footer__nav-link" href="/">Главная</a></li>
-                    <li class="footer__nav-item"><a class="footer__nav-link" href="/contacts">Контакты</a></li>
-                    <li class="footer__nav-item"><a class="footer__nav-link" href="/catalog">Каталог</a></li>
-                    <li class="footer__nav-item"><a class="footer__nav-link" href="/services">Услуги</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/catalog.html">Каталог</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/about.html">О нас</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/contacts.html">Контакты</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/services.html">Услуги</a></li>
                 </ul>
             </div>
             <div class="footer__col footer__col--contacts">
                 <h3 class="footer__title">Свяжитесь с нами</h3>
                 <h4 class="footer__subtitle">E-mail:</h4>
-                <p class="footer__contact">info@shurik.ru</p>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">info@shurik.ru</a></p>
                 <h4 class="footer__subtitle">Служба поддержки:</h4>
-                <p class="footer__contact">+7 (900) 888 88 88</p>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">+7 (900) 888 88 88</a></p>
             </div>
             <div class="footer__col footer__col--subscribe">
                 <div class="footer__social">
                     <ul class="footer__social-list">
                         <li class="footer__social-item"><a class="footer__social-link" href="#">VK</a></li>
-                        <li class="footer__social-item"><a class="footer__social-link" href="#">TELEGRAM</a></li>
-                        <li class="footer__social-item"><a class="footer__social-link" href="#">WHATSAPP</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">MAX</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">DZEN</a></li>
                         <li class="footer__social-item"><a class="footer__social-link" href="#">RUTUBE</a></li>
                     </ul>
                 </div>

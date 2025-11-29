@@ -35,37 +35,49 @@
         </div>
     </header>
 
-    <nav class="breadcrumbs">
+    <div class="breadcrumbs">
+        <nav class="breadcrumbs__container">
         <ol class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__current">О нас</span></li>
         </ol>
-    </nav>
-
-    <h1 class="page-title">О нас</h1>
+        <h1 class="page__title">О нас</h1>
+        </nav>
+    </div>
 
     <section class="about">
         <div class="about__container container">
             <div class="about__content content-block">
                 <p class="content-block__text">
-                    Наш строительный магазин - это более чем 5 лет уверенной работы на рынке. За эти годы мы стали надежным партнером для тысяч профессионалов и домашних мастеров, которые доверяют нам самое ценное - свой дом.
+                    Наш строительный магазин — это более чем 5 лет уверенной работы на рынке. За эти годы мы стали надежным партнером для тысяч профессионалов и домашних мастеров, которые доверяют нам самое ценное — свой дом.
                 </p>
                 <p class="content-block__text">
-                    Мы предлагаем все необходимое для строительства, отделки и ремонта «под одной крышей». Наши полки ломятся от качественных материалов, а в каталогах - десятки тысяч товаров от проверенных российских и зарубежных производителей. Но мы продаем не просто товары, мы помогаем воплощать ваши мечты в жизнь - от фундамента до кровли.
+                    Мы предлагаем все необходимое для строительства, отделки и ремонта «под одной крышей». Наши полки ломятся от качественных материалов, а в каталогах — десятки тысяч товаров от проверенных российских и зарубежных производителей. Но мы продаем не просто товары, мы помогаем воплощать ваши мечты в жизнь — от фундамента до кровли.
                 </p>
+
                 <h2 class="content-block__subtitle">Наши принципы:</h2>
-                <ul class="content-block__list">
-                    <li class="content-block__item">
-                        Качество без компромиссов. Мы тщательно отбираем ассортимент, чтобы вы могли быть уверены в результате.
-                    </li>
-                    <li class="content-block__item">
-                        Профессиональные консультации. Наши специалисты помогут разобраться в тонкостях и подобрать лучшее решение для вашей задачи.
-                    </li>
-                    <li class="content-block__item">
-                        Доступные цены. Мы работаем напрямую с производителями, чтобы предложить вам выгодные условия.
-                    </li>
-                </ul>
+
+                <div class="principles">
+                    <div class="principle-card">
+                        <h3 class="principle-card__title">Качество без компромиссов</h3>
+                        <p class="principle-card__text">
+                            Мы тщательно отбираем ассортимент, чтобы вы могли быть уверены в результате.
+                        </p>
+                    </div>
+                    <div class="principle-card">
+                        <h3 class="principle-card__title">Профессиональные консультации</h3>
+                        <p class="principle-card__text">
+                            Наши специалисты помогут разобраться в тонкостях и подобрать лучшее решение для вашей задачи.
+                        </p>
+                    </div>
+                    <div class="principle-card">
+                        <h3 class="principle-card__title">Доступные цены</h3>
+                        <p class="principle-card__text">
+                            Мы работаем напрямую с производителями, чтобы предложить вам выгодные условия.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -76,41 +88,40 @@
                 <h3 class="footer__title">НАВИГАЦИЯ</h3>
                 <ul class="footer__nav-list">
                     <li class="footer__nav-item"><a class="footer__nav-link" href="/">Главная</a></li>
-                    <li class="footer__nav-item"><a class="footer__nav-link" href="/contacts">Контакты</a></li>
-                    <li class="footer__nav-item"><a class="footer__nav-link" href="/catalog">Каталог</a></li>
-                    <li class="footer__nav-item"><a class="footer__nav-link" href="/services">Услуги</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/catalog.html">Каталог</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/about.html">О нас</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/contacts.html">Контакты</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/services.html">Услуги</a></li>
                 </ul>
             </div>
             <div class="footer__col footer__col--contacts">
                 <h3 class="footer__title">Свяжитесь с нами</h3>
-                <p class="footer__contact">info@shurik.ru</p>
+                <h4 class="footer__subtitle">E-mail:</h4>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">info@shurik.ru</a></p>
                 <h4 class="footer__subtitle">Служба поддержки:</h4>
-                <p class="footer__contact">+7 (900) 888 88 88</p>
-            </div>
-            <div class="footer__col footer__col--social">
-                <h3 class="footer__title">Соцсети</h3>
-                <ul class="footer__social-list">
-                    <li class="footer__social-item"><a class="footer__social-link" href="#">VK</a></li>
-                    <li class="footer__social-item"><a class="footer__social-link" href="#">TELEGRAM</a></li>
-                    <li class="footer__social-item"><a class="footer__social-link" href="#">WHATSAPP</a></li>
-                    <li class="footer__social-item"><a class="footer__social-link" href="#">RUTUBE</a></li>
-                </ul>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">+7 (900) 888 88 88</a></p>
             </div>
             <div class="footer__col footer__col--subscribe">
-                <form class="footer__subscribe-form">
+                <div class="footer__social">
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">VK</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">MAX</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">DZEN</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">RUTUBE</a></li>
+                    </ul>
+                </div>
+                <div class="footer__subscribe-form">
                     <input class="footer__subscribe-input" type="email" placeholder="Введите ваш email, чтобы узнавать первым о новинках">
                     <button class="footer__subscribe-btn" type="submit">→</button>
-                </form>
+                </div>
+                <div class="footer__legal">
+                    <a class="footer__legal-link" href="#">Пользовательское соглашение</a>
+                    <a class="footer__legal-link" href="#">Политика конфиденциальности</a>
+                </div>
             </div>
         </div>
         <div class="footer__bottom">
-            <div class="footer__brand">
-                <span class="footer__brand-name">Шурик</span>
-            </div>
-            <div class="footer__legal">
-                <a class="footer__legal-link" href="#">Пользовательское соглашение</a>
-                <a class="footer__legal-link" href="#">Политика конфиденциальности</a>
-            </div>
+            <p class="footer__copyright">© Шурик, 2015-2025 Все права защищены</p>
         </div>
     </footer>
 </body>

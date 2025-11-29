@@ -250,3 +250,22 @@
 .product-card__action--favorite:hover {
     background-color: #e0e0e0;
 }
+
+.show__more-btn {
+    display: flex;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    padding: 20px 16px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.show__more-btn:hover {
+    background-color: #4caf50;
+    color: white;
+}
