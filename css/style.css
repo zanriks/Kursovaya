@@ -70,6 +70,14 @@
     max-height: 50px;
 }
 
+@media (max-width: 768px) {
+  .advantages__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
 .categories__container {
     display: flex;
     flex-direction: column;
@@ -86,19 +94,6 @@
 .categories__title {
     font-size: 32px;
     font-weight: 600;
-    color: #333;
-    position: relative;
-    padding-bottom: 8px;
-}
-
-.categories__title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: #333;
 }
 
 .categories__all-link {
@@ -106,7 +101,7 @@
     padding: 8px 16px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -194,7 +189,7 @@
     }
     
     .categories__item {
-        flex: 0 0 calc(33.333% - 7px); /* 3 колонки */
+        flex: 0 0 calc(33.333% - 7px);
         height: 90px;
     }
     
@@ -215,30 +210,6 @@
     }
 }
 
-@media (max-width: 480px) {
-    .categories__item {
-        flex: 0 0 calc(50% - 5px); /* 2 колонки */
-        height: 80px;
-    }
-    
-    .category__name {
-        font-size: 11px;
-        top: 6px;
-        left: 6px;
-    }
-    
-    .categories__title {
-        font-size: 20px;
-    }
-    
-    body {
-        padding: 10px;
-    }
-    
-    .categories {
-        padding: 20px 15px;
-    }
-}
 
 .services__container {
     max-width: 1440px;
@@ -258,20 +229,6 @@
 .services__title {
     font-size: 32px;
     font-weight: 600;
-    color: #000000;
-    position: relative;
-    display: inline-block;
-    margin: 0;
-}
-
-.services__title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: #333;
 }
 
 .services__all-link {
@@ -402,6 +359,14 @@
     .services__all-link {
         align-self: flex-start;
     }
+    .services__list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    }
+
+  .services__item:nth-child(1) {
+    grid-row: auto;
+    }
 }
 
 .hits__container {
@@ -421,20 +386,6 @@
 .hits__title {
     font-size: 32px;
     font-weight: 600;
-    margin: 0;
-    padding-bottom: 10px;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.hits__title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: #000;
 }
 
 .hits__catalog-link {
@@ -653,18 +604,7 @@
 .reviews__title {
     font-size: 32px;
     font-weight: bold;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.reviews__title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: #333;
+    margin-bottom: 20px;
 }
 
 .reviews__list {
@@ -742,10 +682,15 @@
     flex-grow: 1;
 }
 
+@media (max-width: 1024px) {
+  .reviews__item {
+    width: calc(50% - 10px);
+  }
+}
+
 @media (max-width: 768px) {
     .reviews__item {
         width: 100%;
-        min-height: auto;
     }
     
     .review__header {
@@ -766,10 +711,7 @@
 .about__title {
     font-size: 32px;
     font-weight: bold;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #000;
-    padding-bottom: 5px;
-    display: inline-block;
+    margin-bottom: 20px;
 }
 
 .about__grid {
@@ -937,28 +879,15 @@
 .partners__title {
     font-size: 32px;
     font-weight: bold;
-    position: relative;
-}
-
-.partners__title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: #000;
 }
 
 .partners__list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    list-style: none;
-    padding: 20px 0;
-    margin-bottom: -30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 0;
+  margin: 0;
+  list-style: none;
 }
 
 .partners__item {
@@ -982,13 +911,13 @@
 }
 
 @media (max-width: 768px) {
-    .partners__list {
-        flex-direction: column;
-        align-items: stretch;
-    }
+  .partners__list {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .partners__item {
-        min-width: auto;
-        margin-bottom: 15px;
-    }
+  .partners__item {
+    width: 100%;
+    max-width: 200px;
+  }
 }

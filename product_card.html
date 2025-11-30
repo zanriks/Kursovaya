@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/style-productcard.css">
+    <link rel="stylesheet" href="css/style-product-card.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
@@ -35,176 +35,203 @@
         </div>
     </header>
 
-    <nav class="breadcrumbs">
+    <div class="breadcrumbs">
+        <nav class="breadcrumbs__container">
         <ol class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Каталог</a></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/subcategory">Подкатегория</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Подкатегория</a></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__current">Сварочный полуавтомат IRMIG 200 SYN LED с горелкой 250A</span></li>
         </ol>
-    </nav>
+        </nav>
+    </div>
 
     <section class="product-page">
         <div class="product-page__container container">
             <div class="product-page__gallery gallery">
                 <ul class="gallery__thumbs">
                     <li class="gallery__thumb-item">
-                        <img class="gallery__thumb-image" src="product-main.jpg" alt="Основное изображение сварочного полуавтомата">
+                        <img class="gallery__thumb-image" src="img/product-card/vid-sboku.jpg" alt="Основное изображение сварочного полуавтомата">
                     </li>
                     <li class="gallery__thumb-item">
-                        <img class="gallery__thumb-image" src="product-thumb1.jpg" alt="Вид спереди">
+                        <img class="gallery__thumb-image" src="img/product-card/vid-Speredi.jpg" alt="Вид спереди">
                     </li>
                     <li class="gallery__thumb-item">
-                        <img class="gallery__thumb-image" src="product-thumb2.jpg" alt="Панель управления">
+                        <img class="gallery__thumb-image" src="img/product-card/vid-szadi.jpg" alt="Задняя панель">
                     </li>
                     <li class="gallery__thumb-item">
-                        <img class="gallery__thumb-image" src="product-thumb3.jpg" alt="В комплекте с маской">
+                        <img class="gallery__thumb-image" src="img/product-card/complekt-s-maskoy.jpg" alt="В комплекте с маской">
                     </li>
                     <li class="gallery__thumb-item">
-                        <img class="gallery__thumb-image" src="product-thumb4.jpg" alt="Задняя панель">
+                        <img class="gallery__thumb-image" src="img/product-card/panel-upravleniya.jpg" alt="Панель управления">
                     </li>
                 </ul>
                 <div class="gallery__main">
-                    <img class="gallery__main-image" src="product-main.jpg" alt="Сварочный полуавтомат IRMIG 200 SYN LED">
-                </div>
-            </div>
-
-            <div class="product-page__info info-block">
-                <div class="info-block__rating rating">
-                    <span class="rating__stars">⭐⭐⭐⭐⭐</span>
-                    <span class="rating__count">13 отзывов</span>
+                    <img class="gallery__main-image" src="img\product-card\main-photo.jpg" alt="Сварочный полуавтомат IRMIG 200 SYN LED">
                 </div>
 
-                <h1 class="info-block__title">Сварочный полуавтомат IRMIG 200 SYN LED с горелкой 250A</h1>
-                <p class="info-block__sku">Артикул: 533574540</p>
-
-                <div class="info-block__price price">
-                    <span class="price__current">32 540 ₽</span>
-                    <span class="price__installment">От 3021 ₽ / мес.</span>
-                </div>
-
-                <button class="info-block__favorite favorite-btn">❤</button>
-
-                <div class="info-block__delivery delivery">
-                    <h3 class="delivery__title">Доставим на дом</h3>
-                    <div class="delivery__option">
-                        <span class="delivery__icon">👤</span>
-                        <span class="delivery__text">Курьером - с 12 декабря</span>
+                <div class="product-page__info info-block">
+                    <div class="info-block__rating rating">
+                        <span class="rating__stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating__count">13 отзывов</span>
                     </div>
-                    <div class="delivery__option">
-                        <span class="delivery__icon">📍</span>
-                        <span class="delivery__text">На пункт выдачи - с 11 декабря</span>
+
+                    <span class="info-block__title">Сварочный полуавтомат IRMIG 200 SYN LED с горелкой 250A</span>
+                    <p class="info-block__sku">Артикул: 533574540</p>
+
+                    <div class="info-block__price">
+                        <div class="price">
+                            <h2 class="price__current">32 540 ₽</h2>
+                            <span class="price__installment">От 3021 ₽ / мес.</span>
+                        </div>
+                        <button class="info-block__favorite favorite-btn"><img src="img/icons/heart.svg" alt="Избранное"></button>
+                    </div>
+
+                    <div class="info-block__delivery delivery">
+                        <h3 class="delivery__title">Доставим на дом</h3>
+                        <div class="delivery__option">
+                            <span class="delivery__icon"><img src="" alt=""></span>
+                            <span class="delivery__text">Курьером - с 12 декабря</span>
+                        </div>
+                        <div class="delivery__option">
+                            <span class="delivery__icon"><img src="" alt=""></span>
+                            <span class="delivery__text">На пункт выдачи - с 11 декабря</span>
+                        </div>
+                    </div>
+
+                    <button class="info-block__add-to-cart add-to-cart-btn">Добавить в корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-page__moreinfo">
+            <div class="product-page__description description">
+                <div class="description__content">
+                    <p class="description__paragraph">
+                        Сварочный полуавтомат Fubag IRMIG 200 SYN LED – высокопроизводительный сварочный аппарат с ярким LED-дисплеем. Выбор методов сварки MMA, MIG/MAG, TIG Lift. Имеет 11 встроенных синергетических программ. Оснащен ярким, хорошо читаемым LED дисплеем с индикацией сварочного тока, напряжения и коррекции напряжения. Аппарат работает в самом распространенном диапазоне сварочного тока 15-200 А с проволокой диаметром от 0,6 до 1,0 мм, катушкой весом 5 кг и диаметром 200 мм. Передняя панель оснащена регуляторами силы тока и скорости подачи проволоки, что позволяет быстро и просто выбирать режимы и оптимальные параметры сварки.
+                    </p>
+                    <p class="description__paragraph">
+                        Сварочный полуавтомат IRMIG 200 SYN LED оснащен евроразъемом (EURO) для быстрого и безопасного подключения сварочной горелки.
+                    </p>
+                    <p class="description__paragraph">
+                        Продолжительность включения (ПВ) составляет 15% при 40С. Эти данные приведены в соответствии с европейским стандартом EN60974-1 при внешней температуре 40С. Часто на рынке используется значение ПВ при температуре окружающей среды 20С: чем ниже температура, тем выше ПВ.
+                    </p>
+                    <p class="description__paragraph">
+                        Сварочный полуавтомат обладает легкой сменой полярности для работы с самозащитной проволокой. Эффективная система охлаждения, а также встроенная функция термозащиты с индикацией перегрева гарантируют долговечность и надежность использования аппарата в условиях интенсивной эксплуатации. Быстрое подключение сварочных кабелей и евроразъем для подключения горелки гарантируют удобство использования. Все технические характеристики наглядно и подробно указаны на корпусе аппарата.
+                    </p>
+                </div>
+            </div>
+
+            <div class="specs">
+                <h1 class="specs__title">Характеристики</h1>
+
+                <h2 class="specs__section-title">Заводские настройки</h2>
+                <div class="specs__row">
+                    <span class="specs__label">Гарантия продавца</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">24 мес.</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Срок эксплуатации</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">24 мес.</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Страна производитель</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">Китай</span>
+                </div>
+
+                <h2 class="specs__section-title">Общие параметры</h2>
+                <div class="specs__row">
+                    <span class="specs__label">Тип</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">Полуавтомат</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Модель</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">IRMIG 200 SYN LED</span>
+                </div>
+
+                <h2 class="specs__section-title">Технические характеристики</h2>
+                <div class="specs__row">
+                    <span class="specs__label">Тип сварочного аппарата</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">Инверторный</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Тип сварки</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">Комби (MIG/MAG/MMA/TIG)</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Макс. диаметр электрода</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">5 мм</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Макс. диаметр проволоки</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">1 мм</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Максимальный сварочный ток (А)</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">180 А</span>
+                </div>
+                <div class="specs__row">
+                    <span class="specs__label">Охлаждение горелки</span>
+                    <span class="specs__line"></span>
+                    <span class="specs__value">Воздушное</span>
+                </div>
+            </div>
+
+                <button class="specifications__expand-btn">Развернуть все</button>
+            </div>
+        </div>
+
+        <div class="reviews-container container">
+            <div class="reviews-header">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <h2 class="reviews-title">Отзывы 13</h2>
+                    <div class="reviews-gallery-wrapper">
+                    <img src="https://via.placeholder.com/50" alt="Фото отзыва" class="review-image">
+                    <img src="https://via.placeholder.com/50" alt="Фото отзыва" class="review-image">
+                    <img src="https://via.placeholder.com/50" alt="Фото отзыва" class="review-image">
+                    <img src="https://via.placeholder.com/50" alt="Фото отзыва" class="review-image">
+                    <img src="https://via.placeholder.com/50" alt="Фото отзыва" class="review-image">
+                    <div class="reviews-total">Всего 7</div>
                     </div>
                 </div>
-
-                <button class="info-block__add-to-cart add-to-cart-btn">Добавить в корзину</button>
+                <button class="add-review-btn">Добавить отзыв</button>
             </div>
+
+            <div class="popular-review">
+            <h3 class="popular-review-title">Самый популярный отзыв</h3>
+            
+            <div class="reviewer-info">
+                <img src="https://via.placeholder.com/50" alt="Аватар" class="reviewer-avatar">
+                <span class="reviewer-name">Алексей Самоваров</span>
+            </div>
+
+            <div class="rating-box">
+                <span>Общая:</span>
+                <span class="rating-stars">★ ★ ★ ★ ★</span>
+            </div>
+
+            <p class="usage-period">Срок использования: Менее месяца</p>
+
+            <h4 class="pros-title">Достоинства</h4>
+            <p class="pros-text">Такого хорошего сварочного аппарата у меня ещё не было, без опыта варю как сварщик 5 разряда, маска которая идёт в комплекте очень хороша.</p>
+
+            <h4 class="cons-title">Недостатки</h4>
+            <p class="cons-text">Вес более 10 кг</p>
+            </div>
+
+            <button class="show-more-btn">Показать ещё</button>
         </div>
-
-        <div class="product-page__description description">
-            <div class="description__content">
-                <p class="description__paragraph">
-                    Сварочный полуавтомат Fubag IRMIG 200 SYN LED – высокопроизводительный сварочный аппарат с ярким LED-дисплеем. Выбор методов сварки MMA, MIG/MAG, TIG Lift. Имеет 11 встроенных синергетических программ. Оснащен ярким, хорошо читаемым LED дисплеем с индикацией сварочного тока, напряжения и коррекции напряжения. Аппарат работает в самом распространенном диапазоне сварочного тока 15-200 А с проволокой диаметром от 0,6 до 1,0 мм, катушкой весом 5 кг и диаметром 200 мм. Передняя панель оснащена регуляторами силы тока и скорости подачи проволоки, что позволяет быстро и просто выбирать режимы и оптимальные параметры сварки.
-                </p>
-                <p class="description__paragraph">
-                    Сварочный полуавтомат IRMIG 200 SYN LED оснащен евроразъемом (EURO) для быстрого и безопасного подключения сварочной горелки.
-                </p>
-                <p class="description__paragraph">
-                    Продолжительность включения (ПВ) составляет 15% при 40С. Эти данные приведены в соответствии с европейским стандартом EN60974-1 при внешней температуре 40С. Часто на рынке используется значение ПВ при температуре окружающей среды 20С: чем ниже температура, тем выше ПВ.
-                </p>
-                <p class="description__paragraph">
-                    Сварочный полуавтомат обладает легкой сменой полярности для работы с самозащитной проволокой. Эффективная система охлаждения, а также встроенная функция термозащиты с индикацией перегрева гарантируют долговечность и надежность использования аппарата в условиях интенсивной эксплуатации. Быстрое подключение сварочных кабелей и евроразъем для подключения горелки гарантируют удобство использования. Все технические характеристики наглядно и подробно указаны на корпусе аппарата.
-                </p>
-            </div>
-        </div>
-
-        <div class="product-page__specifications specifications">
-            <h2 class="specifications__title">Характеристики</h2>
-
-            <div class="specifications__group">
-                <h3 class="specifications__group-title">Заводские настройки</h3>
-                <dl class="specifications__list">
-                    <dt class="specifications__term">Гарантия продавца</dt>
-                    <dd class="specifications__definition">24 мес.</dd>
-                    <dt class="specifications__term">Срок эксплуатации</dt>
-                    <dd class="specifications__definition">24 мес.</dd>
-                    <dt class="specifications__term">Страна производитель</dt>
-                    <dd class="specifications__definition">Китай</dd>
-                </dl>
-            </div>
-
-            <div class="specifications__group">
-                <h3 class="specifications__group-title">Общие параметры</h3>
-                <dl class="specifications__list">
-                    <dt class="specifications__term">Тип</dt>
-                    <dd class="specifications__definition">Полуавтомат</dd>
-                    <dt class="specifications__term">Модель</dt>
-                    <dd class="specifications__definition">IRMIG 200 SYN LED</dd>
-                </dl>
-            </div>
-
-            <div class="specifications__group">
-                <h3 class="specifications__group-title">Технические характеристики</h3>
-                <dl class="specifications__list">
-                    <dt class="specifications__term">Тип сварочного аппарата</dt>
-                    <dd class="specifications__definition">Инверторный</dd>
-                    <dt class="specifications__term">Тип сварки</dt>
-                    <dd class="specifications__definition">Комби (MIG/MAG/MMA/TIG)</dd>
-                    <dt class="specifications__term">Макс. диаметр электрода</dt>
-                    <dd class="specifications__definition">5 мм</dd>
-                    <dt class="specifications__term">Макс. диаметр проволоки</dt>
-                    <dd class="specifications__definition">1 мм</dd>
-                    <dt class="specifications__term">Максимальный сварочный ток (А)</dt>
-                    <dd class="specifications__definition">180 А</dd>
-                    <dt class="specifications__term">Охлаждение горелки</dt>
-                    <dd class="specifications__definition">Воздушное</dd>
-                </dl>
-            </div>
-
-            <button class="specifications__expand-btn">Развернуть все</button>
-        </div>
-
-        <section class="reviews">
-            <div class="reviews__header">
-                <h2 class="reviews__title">Отзывы 13</h2>
-                <div class="reviews__gallery">
-                    <img class="reviews__gallery-image" src="review-photo1.jpg" alt="Фото отзыва">
-                    <img class="reviews__gallery-image" src="review-photo2.jpg" alt="Фото отзыва">
-                    <img class="reviews__gallery-image" src="review-photo3.jpg" alt="Фото отзыва">
-                    <img class="reviews__gallery-image" src="review-photo4.jpg" alt="Фото отзыва">
-                    <img class="reviews__gallery-image" src="review-photo5.jpg" alt="Фото отзыва">
-                    <button class="reviews__gallery-more">Всего 7</button>
-                </div>
-                <button class="reviews__add-btn">Добавить отзыв</button>
-            </div>
-
-            <div class="reviews__popular popular-review">
-                <h3 class="popular-review__title">Самый популярный отзыв</h3>
-                <div class="popular-review__author">
-                    <img class="popular-review__avatar" src="avatar1.jpg" alt="Алексей Самоваров">
-                    <span class="popular-review__name">Алексей Самоваров</span>
-                </div>
-                <div class="popular-review__rating">
-                    <span class="popular-review__label">Общая:</span>
-                    <span class="popular-review__stars">⭐⭐⭐⭐⭐</span>
-                </div>
-                <div class="popular-review__usage">
-                    <span class="popular-review__label">Срок использования:</span>
-                    <span class="popular-review__value">Менее месяца</span>
-                </div>
-                <div class="popular-review__pros">
-                    <h4 class="popular-review__subtitle">Достоинства</h4>
-                    <p class="popular-review__text">Такого хорошего сварочного аппарата у меня ещё не было, без опыта варю как сварщик 5 разряда, маска которая идёт в комплекте очень хороша.</p>
-                </div>
-                <div class="popular-review__cons">
-                    <h4 class="popular-review__subtitle">Недостатки</h4>
-                    <p class="popular-review__text">Вес более 10 кг</p>
-                </div>
-            </div>
-
-            <button class="reviews__show-more">Показать ещё</button>
-        </section>
     </section>
 
     <footer class="footer">
