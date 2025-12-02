@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style-contacts.css">
     <link rel="stylesheet" href="css/footer.css">
+    <script src="script/script.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -27,6 +28,30 @@
             <div class="header__search search">
                 <input class="search__input" type="text" placeholder="Поиск...">
             </div>
+            <button class="burger-menu" aria-label="Открыть меню">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <ul class="mobile-menu__list">
+                    <li><a class="mobile-menu__link" href="/">Главная</a></li>
+                    <li><a class="mobile-menu__link" href="/catalog_instrument.html">Каталог</a></li>
+                    <li><a class="mobile-menu__link" href="/about.html">О нас</a></li>
+                    <li><a class="mobile-menu__link" href="/contacts.html">Контакты</a></li>
+                    <li><a class="mobile-menu__link" href="/services.html">Услуги</a></li>
+
+                    <li><a class="mobile-menu__link" href="/izbrannoe.html">Избранное</a></li>
+                    <li><a class="mobile-menu__link" href="/profile.html">Профиль</a></li>
+                    <li><a class="mobile-menu__link" href="/cart.html">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Оверлей для закрытия меню -->
+        <div class="mobile-menu__overlay" id="menuOverlay"></div>
             <div class="header__actions actions">
                 <a href="/izbrannoe.html"><button class="actions__icon actions__icon--heart"><img src="img/header-icon/heart.svg" alt=""></button></a>
                 <a href="/profile.html"><button class="actions__icon actions__icon--user"><img src="img/header-icon/profile.svg" alt=""></button></a>
@@ -46,45 +71,38 @@
         </nav>
     </div>
 
-    <!-- Основной контент -->
     <section class="contacts">
         <div class="contacts__container container">
             <div class="contacts__info info-block">
                 <h2 class="info-block__title">Всегда рады вас видеть</h2>
 
-                <!-- Адрес -->
                 <div class="info-block__item">
                     <h3 class="info-block__label">Адрес</h3>
                     <p class="info-block__value">Город Томск Ул. колёсная 4</p>
                 </div>
 
-                <!-- Телефон -->
                 <div class="info-block__item">
                     <h3 class="info-block__label">Телефон</h3>
                     <p class="info-block__value">+7 (900) 888 - 88 - 88</p>
                 </div>
 
-                <!-- Email -->
                 <div class="info-block__item">
                     <h3 class="info-block__label">Email</h3>
                     <p class="info-block__value">info@shurik.ru</p>
                 </div>
 
-                <!-- Часы работы -->
                 <div class="info-block__item">
                     <h3 class="info-block__label">Часы работы</h3>
                     <p class="info-block__value">Пн-Сб 9:00 - 19:00</p>
                     <p class="info-block__value">Вс выходной</p>
                 </div>
 
-                <!-- Реквизиты компании -->
                 <div class="info-block__item">
                     <h3 class="info-block__label">Реквизиты компании</h3>
                     <p class="info-block__value">ИНН 893333222342123</p>
                 </div>
             </div>
 
-            <!-- Карта -->
             <div class="contacts__map map">
                 <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/67/tomsk/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Томск</a><a href="https://yandex.ru/maps/geo/tomsk/53117858/?ll=84.988387%2C56.533638&utm_medium=mapframe&utm_source=maps&z=10.99" style="color:#eee;font-size:12px;position:absolute;top:14px;">Томск — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=84.988387%2C56.533638&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1MzExNzg1OBIY0KDQvtGB0YHQuNGPLCDQotC-0LzRgdC6IgoNM-WpQhVG8GFC&z=10.99" width="1000px" height="400" allowfullscreen="true" style="position:relative; border: none; border-radius: 20px;"></iframe></div>
             </div>

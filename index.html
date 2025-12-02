@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/footer.css">
-    <script src="scrript/script.js"></script>
+    <script src="script/script.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -19,7 +19,7 @@
             <nav class="header__nav nav">
                 <ul class="nav__list">
                     <li class="nav__item"><a class="nav__link" href="/">Главная</a></li>
-                    <li class="nav__item"><a class="nav__link" href="/catalog.html">Каталог</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/catalog_instrument.html">Каталог</a></li>
                     <li class="nav__item"><a class="nav__link" href="/about.html">О нас</a></li>
                     <li class="nav__item"><a class="nav__link" href="/contacts.html">Контакты</a></li>
                     <li class="nav__item"><a class="nav__link" href="/services.html">Услуги</a></li>
@@ -28,26 +28,34 @@
             <div class="header__search search">
                 <input class="search__input" type="text" placeholder="Поиск...">
             </div>
+            <button class="burger-menu" aria-label="Открыть меню">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </button>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <ul class="mobile-menu__list">
+                    <li><a class="mobile-menu__link" href="/">Главная</a></li>
+                    <li><a class="mobile-menu__link" href="/catalog_instrument.html">Каталог</a></li>
+                    <li><a class="mobile-menu__link" href="/about.html">О нас</a></li>
+                    <li><a class="mobile-menu__link" href="/contacts.html">Контакты</a></li>
+                    <li><a class="mobile-menu__link" href="/services.html">Услуги</a></li>
+
+                    <li><a class="mobile-menu__link" href="/izbrannoe.html">Избранное</a></li>
+                    <li><a class="mobile-menu__link" href="/profile.html">Профиль</a></li>
+                    <li><a class="mobile-menu__link" href="/cart.html">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="mobile-menu__overlay" id="menuOverlay"></div>
             <div class="header__actions actions">
                 <a href="/izbrannoe.html"><button class="actions__icon actions__icon--heart"><img src="img/header-icon/heart.svg" alt=""></button></a>
                 <a href="/profile.html"><button class="actions__icon actions__icon--user"><img src="img/header-icon/profile.svg" alt=""></button></a>
                 <a href="/cart.html"><button class="actions__icon actions__icon--cart"><img src="img/header-icon/cart.svg" alt=""></button></a>
             </div>
-            <button class="burger-menu" id="burgerMenu">
-                <span class="burger-menu__line"></span>
-                <span class="burger-menu__line"></span>
-                <span class="burger-menu__line"></span>
-            </button>
-            <div class="mobile-menu" id="mobileMenu">
-                <ul class="mobile-menu__list">
-                    <li><a class="mobile-menu__link" href="/">Главная</a></li>
-                    <li><a class="mobile-menu__link" href="/catalog.html">Каталог</a></li>
-                    <li><a class="mobile-menu__link" href="/about.html">О нас</a></li>
-                    <li><a class="mobile-menu__link" href="/contacts.html">Контакты</a></li>
-                    <li><a class="mobile-menu__link" href="/services.html">Услуги</a></li>
-                </ul>
-            </div>
-            <div class="mobile-menu__overlay" id="menuOverlay"></div>
         </div>
     </header>
 
@@ -198,53 +206,60 @@
             </div>
             <ul class="hits__list">
                 <li class="hits__item product">
-                    <img class="product__image" src="img/hits-photo/perforator.png" alt="Перфоратор Bosch GBH 240">
-                    <div class="product__badge product__badge--discount">-13%</div>
-                    <div class="product__price">
-                        <span class="product__price-current">26 640 ₽</span>
-                        <span class="product__price-old">29 990 ₽</span>
-                    </div>
-                    <h3 class="product__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="img/icons/star.svg" alt=""> 4.6</span>
-                        <span class="product__reviews">394 отзыва</span>
-                    </div>
-                    <div class="product__actions">
-                        <button class="product__action product__action--add">В корзину</button>
-                        <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
-                    </div>
+                    <a href="/product_card.html" style="text-decoration: none;">
+                        <img class="product__image" src="img/hits-photo/perforator.png" alt="Перфоратор Bosch GBH 240">
+                        <div class="product__badge product__badge--discount">-13%</div>
+                        <div class="product__price">
+                            <span class="product__price-current">26 640 ₽</span>
+                            <span class="product__price-old">29 990 ₽</span>
+                        </div>
+                        <h3 class="product__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3>
+                        <div class="product__rating">
+                            <span class="product__stars"><img src="img/icons/star.svg" alt=""> 4.6</span>
+                            <span class="product__reviews">394 отзыва</span>
+                        </div>
+                        <div class="product__actions">
+                            <button class="product__action product__action--add">В корзину</button>
+                            <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
+                        </div>
+                    </a>
                 </li>
                 <li class="hits__item product">
-                    <img class="product__image" src="img/hits-photo/gipsokarton.png" alt="Гипсокартон влагостойкий">
-                    <div class="product__price">
-                        <span class="product__price-current">550 ₽</span>
-                    </div>
-                    <h3 class="product__name">Гипсокартон влагостойкий (ГКЛВ), лист 1200x2500x12,5 мм</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="img/icons/star.svg" alt=""> 4.84</span>
-                        <span class="product__reviews">560 отзывов</span>
-                    </div>
-                    <div class="product__actions">
-                        <button class="product__action product__action--add">В корзину</button>
-                        <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
-                    </div>
+                    <a href="/product_card.html" style="text-decoration: none;">
+                        <img class="product__image" src="img/hits-photo/gipsokarton.png" alt="Гипсокартон влагостойкий">
+                        <div class="product__price">
+                            <span class="product__price-current">550 ₽</span>
+                        </div>
+                        <h3 class="product__name">Гипсокартон влагостойкий (ГКЛВ), лист 1200x2500x12,5 мм</h3>
+                        <div class="product__rating">
+                            <span class="product__stars"><img src="img/icons/star.svg" alt=""> 4.84</span>
+                            <span class="product__reviews">560 отзывов</span>
+                        </div>
+                        <div class="product__actions">
+                            <button class="product__action product__action--add">В корзину</button>
+                            <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
+                        </div>
+                    </a>
                 </li>
                 <li class="hits__item product">
-                    <img class="product__image" src="img/hits-photo/spc-plitka.webp" alt="SPC плитка Дуб Санкт-Петербург">
-                    <div class="product__price">
-                        <span class="product__price-current">1220 ₽</span>
-                    </div>
-                    <h3 class="product__name">SPC плитка Дуб Санкт-Петербург класс 43 толщина 4 мм 2.16 м²</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="img/icons/star.svg" alt=""> 4.9</span>
-                        <span class="product__reviews">46 отзывов</span>
-                    </div>
-                    <div class="product__actions">
-                        <button class="product__action product__action--add">В корзину</button>
-                        <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
-                    </div>
+                    <a href="/product_card.html" style="text-decoration: none;">
+                        <img class="product__image" src="img/hits-photo/spc-plitka.webp" alt="SPC плитка Дуб Санкт-Петербург">
+                        <div class="product__price">
+                            <span class="product__price-current">1220 ₽</span>
+                        </div>
+                        <h3 class="product__name">SPC плитка Дуб Санкт-Петербург класс 43 толщина 4 мм 2.16 м²</h3>
+                        <div class="product__rating">
+                            <span class="product__stars"><img src="img/icons/star.svg" alt=""> 4.9</span>
+                            <span class="product__reviews">46 отзывов</span>
+                        </div>
+                        <div class="product__actions">
+                            <button class="product__action product__action--add">В корзину</button>
+                            <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
+                        </div>
+                    </a>
                 </li>
                 <li class="hits__item product">
+                    <a href="/product_card.html" style="text-decoration: none;">
                     <img class="product__image" src="img/hits-photo/ceresit.png" alt="Ceresit Клей для плитки эластичный">
                     <div class="product__badge product__badge--discount">-13%</div>
                     <div class="product__price">
@@ -260,8 +275,10 @@
                         <button class="product__action product__action--add">В корзину</button>
                         <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
                     </div>
+                    </a>
                 </li>
                 <li class="hits__item product">
+                    <a href="/product_card.html" style="text-decoration: none;">
                     <img class="product__image" src="img/hits-photo/ceresit.png" alt="Ceresit Клей для плитки эластичный">
                     <div class="product__price">
                         <span class="product__price-current">940 ₽</span>
@@ -275,6 +292,7 @@
                         <button class="product__action product__action--add">В корзину</button>
                         <button class="product__action product__action--favorite"><img src="img/icons/heart.svg" alt=""></button>
                     </div>
+                    </a>
                 </li>
             </ul>
         </div>

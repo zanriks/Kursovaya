@@ -1,9 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 body {
     overflow-y: scroll;
 }
@@ -52,16 +46,6 @@ body {
     font-size: 32px;
     font-weight: 600;
     position: relative;
-}
-
-.page__title::after {
-    content: '';
-    bottom: -8px;
-    position: absolute;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: #333;
 }
 
 .breadcrumbs__current {

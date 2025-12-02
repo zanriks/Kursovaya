@@ -1,26 +1,6 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 .page__title {
   font-size: 36px;
   font-weight: 600;
-  color: #000;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 12px;
-}
-
-.page__title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60%;
-  height: 2px;
-  background-color: #000000;
 }
 
 .services-grid {
