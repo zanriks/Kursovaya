@@ -145,7 +145,7 @@ body {
 }
 
 .description__content p{
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 30px;
 }
 
@@ -157,7 +157,7 @@ body {
 }
 
 .specs__title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 15px;
@@ -167,7 +167,7 @@ body {
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .specs__row {
@@ -177,7 +177,7 @@ body {
 }
 
 .specs__label {
-  font-size: 14px;
+  font-size: 16px;
   white-space: nowrap;
   padding-right: 5px;
 }
@@ -191,7 +191,7 @@ body {
 }
 
 .specs__value {
-  font-size: 14px;
+  font-size: 16px;
   white-space: nowrap;
   width: 220px;
   padding-left: 10px;
@@ -369,4 +369,10 @@ body {
     text-align: center;
     width: 100%;
     margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .product-page__moreinfo{
+        flex-direction: column;
+    }
 }
