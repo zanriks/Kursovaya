@@ -371,8 +371,496 @@ body {
     margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-    .product-page__moreinfo{
+/* ==== МОБИЛЬНАЯ ВЕРСИЯ (до 420px) ==== */
+
+@media (max-width: 420px) {
+    .product-page__container {
         flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .product-page__gallery {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gallery__thumbs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .gallery__thumb-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+    }
+
+    .gallery__main {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .gallery__main-image {
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .product-page__info {
+        min-width: auto;
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    .info-block__title {
+        font-size: 20px;
+        width: 100%;
+        word-break: break-word;
+    }
+
+    .info-block__price {
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .price {
+        padding: 12px 15px;
+        border-radius: 15px;
+        font-size: 14px;
+    }
+
+    .price__current {
+        font-size: 20px;
+    }
+
+    .info-block__favorite {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #D9D9D9;
+        border-radius: 50%;
+    }
+
+    .info-block__favorite img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .info-block__add-to-cart {
+        width: 100%;
+        padding: 14px 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        margin-top: 15px;
+    }
+
+    .delivery__option {
+        margin-bottom: 8px;
+    }
+
+    .delivery__text {
+        font-size: 14px;
+    }
+
+    /* Описание */
+    .product-page__description {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .description__content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    /* Характеристики */
+    .specs {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .specs__title {
+        font-size: 20px;
+    }
+
+    .specs__section-title {
+        font-size: 18px;
+    }
+
+    .specs__row {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    .specs__label {
+        font-size: 14px;
+        padding-right: 0;
+        white-space: normal;
+    }
+
+    .specs__line {
+        display: none; /* Убираем линию для компактности */
+    }
+
+    .specs__value {
+        font-size: 14px;
+        width: auto;
+        padding-left: 0;
+        text-align: left;
+        word-break: break-all;
+    }
+
+    .specifications__expand-btn {
+        width: 100%;
+        padding: 12px 10px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    /* Отзывы */
+    .reviews-container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .reviews-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-content {
+        width: 100%;
+    }
+
+    .reviews-title {
+        font-size: 18px;
+    }
+
+    .reviews-gallery-wrapper {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .review-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .reviews-total {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .add-review-btn {
+        width: 100%;
+        min-width: auto;
+        min-height: 40px;
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .popular-review {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .popular-review-title {
+        font-size: 16px;
+    }
+
+    .reviewer-info {
+        gap: 8px;
+    }
+
+    .reviewer-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .rating-box {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .rating-stars {
+        font-size: 14px;
+    }
+
+    .usage-period {
+        font-size: 12px;
+    }
+
+    .pros-title,
+    .cons-title {
+        font-size: 14px;
+        margin: 12px 0 6px 0;
+    }
+
+    .pros-text,
+    .cons-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .show-more-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+}
+
+/* ==== ПЛАНШЕТНАЯ ВЕРСИЯ (до 992px) ==== */
+
+@media (max-width: 992px) {
+    .product-page__container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 25px;
+    }
+
+    .product-page__gallery {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gallery__thumbs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 0;
+    }
+
+    .gallery__thumb-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+    }
+
+    .gallery__main {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .gallery__main-image {
+        max-height: 400px;
+        object-fit: contain;
+    }
+
+    .product-page__info {
+        min-width: auto;
+        padding: 20px 0;
+        gap: 15px;
+    }
+
+    .info-block__title {
+        font-size: 22px;
+        width: 100%;
+        word-break: break-word;
+    }
+
+    .info-block__price {
+        flex-direction: column;
+        gap: 15px;
+        margin: 15px 0;
+    }
+
+    .price {
+        padding: 15px 20px;
+        border-radius: 15px;
+        font-size: 16px;
+    }
+
+    .price__current {
+        font-size: 22px;
+    }
+
+    .info-block__favorite {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #D9D9D9;
+        border-radius: 50%;
+    }
+
+    .info-block__favorite img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .info-block__add-to-cart {
+        width: 100%;
+        padding: 16px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        margin-top: 15px;
+    }
+
+    .delivery__option {
+        margin-bottom: 10px;
+    }
+
+    .delivery__text {
+        font-size: 14px;
+    }
+
+    /* Описание */
+    .product-page__description {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .description__content p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    /* Характеристики */
+    .specs {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .specs__title {
+        font-size: 22px;
+    }
+
+    .specs__section-title {
+        font-size: 18px;
+    }
+
+    .specs__row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .specs__label {
+        font-size: 14px;
+        white-space: normal;
+        padding-right: 0;
+    }
+
+    .specs__line {
+        display: none;
+    }
+
+    .specs__value {
+        font-size: 14px;
+        width: auto;
+        padding-left: 0;
+        text-align: left;
+        word-break: break-all;
+    }
+
+    .specifications__expand-btn {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    /* Отзывы */
+    .reviews-container {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .reviews-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-content {
+        width: 100%;
+    }
+
+    .reviews-title {
+        font-size: 18px;
+    }
+
+    .reviews-gallery-wrapper {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .review-image {
+        width: 45px;
+        height: 45px;
+    }
+
+    .reviews-total {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .add-review-btn {
+        width: 100%;
+        min-width: auto;
+        min-height: 45px;
+        padding: 12px 20px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .popular-review {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .popular-review-title {
+        font-size: 18px;
+    }
+
+    .reviewer-info {
+        gap: 10px;
+    }
+
+    .reviewer-avatar {
+        width: 45px;
+        height: 45px;
+    }
+
+    .rating-box {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .rating-stars {
+        font-size: 16px;
+    }
+
+    .usage-period {
+        font-size: 14px;
+    }
+
+    .pros-title,
+    .cons-title {
+        font-size: 14px;
+        margin: 15px 0 8px 0;
+    }
+
+    .pros-text,
+    .cons-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .show-more-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        border-radius: 8px;
     }
 }
