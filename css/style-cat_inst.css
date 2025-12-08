@@ -267,6 +267,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background-color 0.4s ease;
 }
 
 .show__more-btn:hover {
