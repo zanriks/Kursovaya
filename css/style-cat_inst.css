@@ -127,14 +127,12 @@
     border: 1px solid #eee;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease;
     position: relative;
 }
 
 .product-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fcfcfc;
+    border: 2px solid #4CAF50;
 }
 
 .product-card__image {
@@ -185,7 +183,6 @@
     font-size: 14px;
     font-weight: normal;
     padding: 0 15px 10px;
-    color: #333;
     line-height: 1.4;
     max-height: 40px;
     overflow: hidden;
