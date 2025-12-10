@@ -215,7 +215,6 @@
     margin-bottom: 10px;
 }
 
-/* Адаптив для .company */
 @media (max-width: 768px) {
     .company__container {
         padding: 0 20px;
