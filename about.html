@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style-about.css">
     <link rel="stylesheet" href="css/footer.css">
-    <script src="script/script.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -34,23 +33,23 @@
                 <span class="burger-menu__line"></span>
             </button>
 
-        <div class="mobile-menu" id="mobileMenu">
-            <nav class="mobile-nav">
-                <ul class="mobile-menu__list">
-                    <li><a class="mobile-menu__link" href="/">Главная</a></li>
-                    <li><a class="mobile-menu__link" href="/catalog_instrument.html">Каталог</a></li>
-                    <li><a class="mobile-menu__link" href="/about.html">О нас</a></li>
-                    <li><a class="mobile-menu__link" href="/contacts.html">Контакты</a></li>
-                    <li><a class="mobile-menu__link" href="/services.html">Услуги</a></li>
+            <div class="mobile-menu" id="mobileMenu">
+                <nav class="mobile-nav">
+                    <ul class="mobile-menu__list">
+                        <li><a class="mobile-menu__link" href="/">Главная</a></li>
+                        <li><a class="mobile-menu__link" href="/catalog_instrument.html">Каталог</a></li>
+                        <li><a class="mobile-menu__link" href="/about.html">О нас</a></li>
+                        <li><a class="mobile-menu__link" href="/contacts.html">Контакты</a></li>
+                        <li><a class="mobile-menu__link" href="/services.html">Услуги</a></li>
 
-                    <li><a class="mobile-menu__link" href="/izbrannoe.html">Избранное</a></li>
-                    <li><a class="mobile-menu__link" href="/profile.html">Профиль</a></li>
-                    <li><a class="mobile-menu__link" href="/cart.html">Корзина</a></li>
-                </ul>
-            </nav>
-        </div>
+                        <li><a class="mobile-menu__link" href="/izbrannoe.html">Избранное</a></li>
+                        <li><a class="mobile-menu__link" href="/profile.html">Профиль</a></li>
+                        <li><a class="mobile-menu__link" href="/cart.html">Корзина</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-        <div class="mobile-menu__overlay" id="menuOverlay"></div>
+            <div class="mobile-menu__overlay" id="menuOverlay"></div>
             <div class="header__actions actions">
                 <a href="/izbrannoe.html" class="actions__icon actions__icon--heart"><img src="img/header-icon/heart.svg" alt=""></a>
                 <a href="/profile.html" class="actions__icon actions__icon--user"><img src="img/header-icon/profile.svg" alt=""></a>
@@ -70,38 +69,65 @@
         </nav>
     </div>
 
-    <section class="about">
-        <div class="about__container container">
-            <div class="about__content content-block">
-                <p class="content-block__text">
-                    Наш строительный магазин — это более чем 5 лет уверенной работы на рынке. За эти годы мы стали надежным партнером для тысяч профессионалов и домашних мастеров, которые доверяют нам самое ценное — свой дом.
-                </p>
-                <p class="content-block__text">
-                    Мы предлагаем все необходимое для строительства, отделки и ремонта «под одной крышей». Наши полки ломятся от качественных материалов, а в каталогах — десятки тысяч товаров от проверенных российских и зарубежных производителей. Но мы продаем не просто товары, мы помогаем воплощать ваши мечты в жизнь — от фундамента до кровли.
-                </p>
+    <section class="intro">
+        <div class="intro__container">
+            <div class="intro__image">
+                <img src="img/img-about/grupovaya_photographiya 1.png" alt="Наша команда" class="intro__img" />
+            </div>
+            <p class="intro__text">
+                Наш строительный магазин — это более чем 5 лет уверенной работы на рынке. За эти годы мы стали надежным партнером для тысяч профессионалов и домашних мастеров, которые доверяют нам самое ценное — свой дом.
+            </p>
+        </div>
+    </section>
 
-                <h2 class="content-block__subtitle">Наши принципы:</h2>
-
-                <div class="principles">
-                    <div class="principle-card">
-                        <h3 class="principle-card__title">Качество без компромиссов</h3>
-                        <p class="principle-card__text">
-                            Мы тщательно отбираем ассортимент, чтобы вы могли быть уверены в результате.
-                        </p>
-                    </div>
-                    <div class="principle-card">
-                        <h3 class="principle-card__title">Профессиональные консультации</h3>
-                        <p class="principle-card__text">
-                            Наши специалисты помогут разобраться в тонкостях и подобрать лучшее решение для вашей задачи.
-                        </p>
-                    </div>
-                    <div class="principle-card">
-                        <h3 class="principle-card__title">Доступные цены</h3>
-                        <p class="principle-card__text">
-                            Мы работаем напрямую с производителями, чтобы предложить вам выгодные условия.
-                        </p>
-                    </div>
+    <section class="team">
+        <div class="team__container">
+            <h2 class="team__title">Наша команда</h2>
+            <div class="team__members">
+                <div class="member">
+                    <img src="img/img-about/upravlyauhiy.png" alt="Управляющий" class="member__photo">
+                    <p class="member__role">Управляющий</p>
                 </div>
+                <div class="member">
+                    <img src="img/img-about/specialist.png" alt="Специалист по подбору материалов" class="member__photo">
+                    <p class="member__role">Специалист по подбору материалов</p>
+                </div>
+                <div class="member">
+                    <img src="img/img-about/logist.png" alt="Логист" class="member__photo">
+                    <p class="member__role">Логист</p>
+                </div>
+                <div class="member">
+                    <img src="img/img-about/driver.png" alt="Водитель" class="member__photo">
+                    <p class="member__role">Водитель</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="products__container">
+            <h2 class="products__title">В магазинах АСТМАСТЕР вы найдёте:</h2>
+            <div class="products__list">
+                <p class="products__item">Строительные материалы: цемент, кирпичи, блоки, древесина и многое другое.</p>
+                <p class="products__item">Отделочные материалы: обои, плитка, краски, напольные покрытия.</p>
+                <p class="products__item">Сантехника: оборудование для ванных комнат, кухни и водоснабжения.</p>
+                <p class="products__item">Инструменты: профессиональные и бытовые инструменты для ремонта и строительства.</p>
+                <p class="products__item">Дача и сад: семена, рассада, саженцы плодовых и декоративных культур, грунты, техника для сада и огорода, садовый инвентарь</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="company">
+        <div class="company__container">
+            <h2 class="company__title">Реквизиты компании:</h2>
+            <div class="company__info">
+                <p class="company__line">Общество с ограниченной ответственностью «Строительный магазин «АСТМАСТЕР»</p>
+                <p class="company__line">ИНН: 7392543549</p>
+                <p class="company__line">КПП: 997350001</p>
+                <p class="company__line">ОГРН: 1067841986742</p>
+                <p class="company__line">Юридический адрес: 650000, г. Кемерово, Красноармейская улица, 136</p>
+                <p class="company__line">Р/с: 40702843255570424182</p>
+                <p class="company__line">Северо-Западный банк ПАО «СБЕРБАНК»</p>
             </div>
         </div>
     </section>

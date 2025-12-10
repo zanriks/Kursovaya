@@ -49,14 +49,25 @@
 }
 
 .map-wrapper img {
-    width: 100%;
+    width: 800px;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
+@media (max-width: 1024px) {
+    .contacts__container {
+        flex-direction: column;
+    }
+
+    .map-wrapper img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 @media (max-width: 768px) {
-    .contacts__content {
+    .contacts__container {
         flex-direction: column;
     }
     
@@ -82,6 +93,12 @@
     }
     
     .map-wrapper {
-        height: 300px;
+        height: auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .map-wrapper {
+        height: auto;
     }
 }
