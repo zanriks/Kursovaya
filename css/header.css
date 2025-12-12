@@ -221,7 +221,6 @@ body {
     z-index: 998;
 }
 
-/* Медиа-запросы */
 @media (max-width: 1024px) {
     .header__nav,
     .header__actions {
@@ -234,7 +233,7 @@ body {
     }
 
     .search__input {
-        width: 200px;
+        width: 100%;
     }
 
     .search__input:focus {
