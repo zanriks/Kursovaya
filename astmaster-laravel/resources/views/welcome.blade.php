@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <a class="header__logo logo" href="/">
+                <span class="logo__text">АСТМАСТЕР</span>
+            </a>
+
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="/">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/catalog">Каталог</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/about">О нас</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/contacts">Контакты</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/services">Услуги</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__search search">
+                <input class="search__input" type="text" placeholder="Поиск...">
+            </div>
+
+            <input type="checkbox" id="burger-toggle" class="burger-toggle" aria-hidden="true">
+
+            <label for="burger-toggle" class="burger-menu">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </label>
+
+            <div class="mobile-menu">
+                <nav class="mobile-nav">
+                    <ul class="mobile-menu__list">
+                        <li><a class="mobile-menu__link" href="/">Главная</a></li>
+                        <li><a class="mobile-menu__link" href="/catalog/instrument">Каталог</a></li>
+                        <li><a class="mobile-menu__link" href="/about">О нас</a></li>
+                        <li><a class="mobile-menu__link" href="/contacts">Контакты</a></li>
+                        <li><a class="mobile-menu__link" href="/services">Услуги</a></li>
+                        <li><a class="mobile-menu__link" href="/favorites">Избранное</a></li>
+                        <li><a class="mobile-menu__link" href="/profile">Профиль</a></li>
+                        <li><a class="mobile-menu__link" href="/cart">Корзина</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="mobile-menu__overlay"></div>
+
+            <div class="header__actions actions">
+                <a href="/favorites" class="actions__icon actions__icon--heart">
+                    <img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное">
+                </a>
+                <a href="/profile" class="actions__icon actions__icon--user">
+                    <img src="{{ asset('img/header-icon/profile.svg') }}" alt="Профиль">
+                </a>
+                <a href="/cart" class="actions__icon actions__icon--cart">
+                    <img src="{{ asset('img/header-icon/cart.svg') }}" alt="Корзина">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="slider">
+        <div class="slider__container container">
+            <div class="slider__track">
+                <div class="slider__slide slide">
+                    <img class="slide__image" src="{{ asset('img/main-photo.jpg') }}" alt="Интернет-магазин инструментов">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="categories">
+        <div class="categories__container container">
+            <div class="categories__header">
+                <h2 class="categories__title">Каталог</h2>
+                <a class="categories__all-link" href="/catalog">Все категории > </a>
+            </div>
+            <ul class="categories__list">
+                <li class="categories__item category">
+                    <a href="/catalog/instrument">
+                        <img class="category__image" src="{{ asset('img/categories_main/instrumenti_main.png') }}" alt="Инструменты">
+                        <p class="category__name">Инструменты</p>
+                    </a>
+                </li>
+                <li class="categories__item category">
+                    <a href="/catalog/instrument">
+                        <img class="category__image" src="{{ asset('img/categories_main/electrika.png') }}" alt="Электрика">
+                        <p class="category__name">Электрика</p>
+                    </a>
+                </li>
+                <li class="categories__item category">
+                    <a href="/catalog/instrument">
+                        <img class="category__image" src="{{ asset('img/categories_main/gvozdi_main.png') }}" alt="Крепеж и фурнитура">
+                        <p class="category__name">Крепеж и фурнитура</p>
+                    </a>
+                </li>
+                <li class="categories__item category">
+                    <a href="/catalog/instrument">
+                        <img class="category__image" src="{{ asset('img/categories_main/generator.png') }}" alt="Силовая техника">
+                        <p class="category__name">Силовая техника</p>
+                    </a>
+                </li>
+                <li class="categories__item category">
+                    <a href="/catalog/instrument">
+                        <img class="category__image" src="{{ asset('img/categories_main/molotok.png') }}" alt="Ручной инструмент">
+                        <p class="category__name">Ручной инструмент</p>
+                    </a>
+                </li>
+                <li class="categories__item category">
+                    <a href="/catalog/instrument">
+                        <img class="category__image" src="{{ asset('img/categories_main/plitka_main.webp') }}" alt="Плитка">
+                        <p class="category__name">Плитка</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="advantages__container container">
+            <ul class="advantages__list">
+                <li class="advantages__item advantage">
+                    <div class="advantage__icon"><img src="{{ asset('img/advantages-img/floor-price.svg') }}" alt="Минимальные цены"></div>
+                    <h3 class="advantage__title">Минимальные цены</h3>
+                </li>
+                <li class="advantages__item advantage">
+                    <div class="advantage__icon"><img src="{{ asset('img/advantages-img/fast-delivery.svg') }}" alt="Бесплатная доставка"></div>
+                    <h3 class="advantage__title">Бесплатная доставка</h3>
+                </li>
+                <li class="advantages__item advantage">
+                    <div class="advantage__icon"><img src="{{ asset('img/advantages-img/payment.svg') }}" alt="Удобная оплата"></div>
+                    <h3 class="advantage__title">Удобная оплата</h3>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services__container container">
+            <div class="services__header">
+                <h2 class="services__title">Услуги</h2>
+                <a class="services__all-link" href="/services">Все услуги ></a>
+            </div>
+            <ul class="services__list">
+                <li class="services__item service">
+                    <div class="service__top-content">
+                        <div class="service__icon"><img src="{{ asset('img/services/calculator.svg') }}" alt="Смета онлайн"></div>
+                        <div class="service__content">
+                            <a href="#"><h3 class="service__name smeta">Смета онлайн</h3></a>
+                            <p class="service__desc">Доставка распространяется на розничных клиентов и клиентов интернет-магазина</p>
+                        </div>
+                    </div>
+                    <div class="service_img">
+                        <img src="{{ asset('img/services/calculator-smeta.png') }}" alt="calculator-smeta">
+                    </div>
+                </li>
+
+                <li class="services__item service">
+                    <div class="service__top-content">
+                        <div class="service__icon"><img src="{{ asset('img/services/shkaf.svg') }}" alt="Сборка мебели"></div>
+                        <div class="service__content">
+                            <a href="#"><h3 class="service__name">Сборка мебели</h3></a>
+                            <p class="service__desc">Доставка распространяется на розничных клиентов и клиентов интернет-магазина</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="services__item service">
+                    <div class="service__top-content">
+                        <div class="service__icon"><img src="{{ asset('img/services/pila.svg') }}" alt="Распил досок"></div>
+                        <div class="service__content">
+                            <a href="#"><h3 class="service__name">Распил досок</h3></a>
+                            <p class="service__desc">Доставка распространяется на розничных клиентов и клиентов интернет-магазина</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="services__item service">
+                    <div class="service__top-content">
+                        <div class="service__icon"><img src="{{ asset('img/services/instrumenti.svg') }}" alt="Прокат инструментов"></div>
+                        <div class="service__content">
+                            <a href="#"><h3 class="service__name">Прокат инструментов</h3></a>
+                            <p class="service__desc">Доставка распространяется на розничных клиентов и клиентов интернет-магазина</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="services__item service">
+                    <div class="service__top-content">
+                        <div class="service__icon"><img src="{{ asset('img/advantages-img/fast-delivery.svg') }}" alt="Доставка"></div>
+                        <div class="service__content">
+                            <a href="#"><h3 class="service__name">Доставка</h3></a>
+                            <p class="service__desc">Доставка распространяется на розничных клиентов и клиентов интернет-магазина</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="hits">
+        <div class="hits__container container">
+            <div class="hits__header">
+                <h2 class="hits__title">Хиты продаж</h2>
+                <a class="hits__catalog-link" href="/catalog">Каталог ></a>
+            </div>
+            <ul class="hits__list">
+                <li class="hits__item product">
+                    <a href="/product_card" style="text-decoration: none;">
+                        <img class="product__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Гипсокартон влагостойкий">
+                        <div class="product__badge product__badge--discount">-13%</div>
+                        <div class="product__price">
+                            <span class="product__price-current">26 640 ₽</span>
+                            <span class="product__price-old">29 990 ₽</span>
+                        </div>
+                        <h3 class="product__name">Гипсокартон влагостойкий (ГКЛВ), лист 1200x2500x12,5 мм</h3>
+                        <div class="product__rating">
+                            <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.84</span>
+                            <span class="product__reviews">560 отзывов</span>
+                        </div>
+                        <div class="product__actions">
+                            <span class="product__action product__action--add">В корзину</span>
+                            <span class="product__action product__action--favorite"><img src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="hits__item product">
+                    <a href="/product_card" style="text-decoration: none;">
+                        <img class="product__image" src="{{ asset('img/hits-photo/gipsokarton.png') }}" alt="Гипсокартон влагостойкий">
+                        <div class="product__price">
+                            <span class="product__price-current">550 ₽</span>
+                        </div>
+                        <h3 class="product__name">Гипсокартон влагостойкий (ГКЛВ), лист 1200x2500x12,5 мм</h3>
+                        <div class="product__rating">
+                            <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.84</span>
+                            <span class="product__reviews">560 отзывов</span>
+                        </div>
+                        <div class="product__actions">
+                            <span class="product__action product__action--add">В корзину</span>
+                            <span class="product__action product__action--favorite"><img src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="hits__item product">
+                    <a href="/product_card" style="text-decoration: none;">
+                        <img class="product__image" src="{{ asset('img/hits-photo/spc-plitka.webp') }}" alt="SPC плитка Дуб Санкт-Петербург">
+                        <div class="product__price">
+                            <span class="product__price-current">1220 ₽</span>
+                        </div>
+                        <h3 class="product__name">SPC плитка Дуб Санкт-Петербург класс 43 толщина 4 мм 2.16 м²</h3>
+                        <div class="product__rating">
+                            <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.9</span>
+                            <span class="product__reviews">46 отзывов</span>
+                        </div>
+                        <div class="product__actions">
+                            <span class="product__action product__action--add">В корзину</span>
+                            <span class="product__action product__action--favorite"><img src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="hits__item product">
+                    <a href="/product_card" style="text-decoration: none;">
+                    <img class="product__image" src="{{ asset('img/hits-photo/ceresit.png') }}" alt="Ceresit Клей для плитки эластичный">
+                    <div class="product__badge product__badge--discount">-13%</div>
+                    <div class="product__price">
+                        <span class="product__price-current">26 640 ₽</span>
+                        <span class="product__price-old">29 990 ₽</span>
+                    </div>
+                    <h3 class="product__name">Ceresit Клей для плитки эластичный CM 14, 25 кг</h3>
+                    <div class="product__rating">
+                        <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.6</span>
+                        <span class="product__reviews">394 отзыва</span>
+                    </div>
+                    <div class="product__actions">
+                        <span class="product__action product__action--add">В корзину</span>
+                        <span class="product__action product__action--favorite"><img src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
+                    </div>
+                    </a>
+                </li>
+                <li class="hits__item product">
+                    <a href="/product_card" style="text-decoration: none;">
+                    <img class="product__image" src="{{ asset('img/hits-photo/ceresit.png') }}" alt="Ceresit Клей для плитки эластичный">
+                    <div class="product__price">
+                        <span class="product__price-current">940 ₽</span>
+                    </div>
+                    <h3 class="product__name">Ceresit Клей для плитки эластичный CM 14, 25 кг</h3>
+                    <div class="product__rating">
+                        <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.6</span>
+                        <span class="product__reviews">394 отзыва</span>
+                    </div>
+                    <div class="product__actions">
+                        <span class="product__action product__action--add">В корзину</span>
+                        <span class="product__action product__action--favorite"><img src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
+                    </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="partners__container container">
+            <h2 class="partners__title">Наши партнёры</h2>
+            <ul class="partners__list">
+                <li class="partners__item partner">
+                    <img class="partner__logo" src="{{ asset('img/partners-img/interskol.png') }}" alt="Интерскол">
+                </li>
+                <li class="partners__item partner">
+                    <img class="partner__logo" src="{{ asset('img/partners-img/bosch.png') }}" alt="Bosch">
+                </li>
+                <li class="partners__item partner">
+                    <img class="partner__logo" src="{{ asset('img/partners-img/tarkett.png') }}" alt="Tarkett">
+                </li>
+                <li class="partners__item partner">
+                    <img class="partner__logo" src="{{ asset('img/partners-img/tehnonikol.png') }}" alt="Технониколь">
+                </li>
+                <li class="partners__item partner">
+                    <img class="partner__logo" src="{{ asset('img/partners-img/gerkules.png') }}" alt="Gerkules">
+                </li>
+                <li class="partners__item partner">
+                    <img class="partner__logo" src="{{ asset('img/partners-img/ceresit.png') }}" alt="Ceresit">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="reviews__container container">
+            <h2 class="reviews__title">Отзывы</h2>
+            <ul class="reviews__list">
+                <li class="reviews__item review">
+                    <div class="review__header">
+                        <div class="review__avatar">
+                            <a href="#"><img class="review__avatar-image" src="{{ asset('img/reviews-photo/women1.jpg') }}" alt="Екатерина Холопова"></a>
+                        </div>
+                        <div class="review__author-rating">
+                            <a href="#" style="text-decoration: none; color: black;"><h3 class="review__author">Екатерина Холопова</h3></a>
+                            <div class="review__rating"><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="review__content">
+                        <p class="review__text">Я никогда раньше не сталкивалась с серьезным ремонтом, но когда решила своими руками собрать шкаф и положить плитку в ванной, немного паниковала. Цены приятно удивили, особенно на собственные торговые марки. А главное я поверила в свои силы. Весь купленный материал был качественным, ремонт прошел без сюрпризов. Теперь только к вам!</p>
+                    </div>
+                </li>
+                <li class="reviews__item review">
+                    <div class="review__header">
+                        <div class="review__avatar">
+                            <a href="#"><img class="review__avatar-image" src="{{ asset('img/reviews-photo/women2.webp') }}" alt="Афанасия Калинова"></a>
+                        </div>
+                        <div class="review__author-rating">
+                           <a href="#" style="text-decoration: none; color: black;"><h3 class="review__author">Афанасия Калинова</h3></a>
+                            <div class="review__rating"><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="review__content">
+                        <p class="review__text">Постоянно закупаемся для объектов. Основной ассортимент всегда в наличии, цены адекватные. Менеджеры работают четко. Иногда не хватает экзотики, но в целом — надежный поставщик.</p>
+                    </div>  
+                </li>
+                <li class="reviews__item review">
+                    <div class="review__header">
+                        <div class="review__avatar">
+                            <a href="#"><img class="review__avatar-image" src="{{ asset('img/reviews-photo/women3.jpg') }}" alt="Надежда Любознатая"></a>
+                        </div>
+                        <div class="review__author-rating">
+                            <a href="#" style="text-decoration: none; color: black;"><h3 class="review__author">Надежда Любознатая</h3></a>
+                            <div class="review__rating"><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""><img src="{{ asset('img/icons/star.svg') }}" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="review__content">
+                        <p class="review__text">Была в вашем новом филиале на Проспекте Строителей. Все сделано для комфорта покупателя! Возле каждого вида краски есть образцы на стене, можно сразу посмотреть, как цвет выглядит при разном освещении. Персонал вежливый, не навязывается, но всегда готов помочь. Заказали доставку — привезли в тот же день, все аккуратно разгрузили, ничего не помяли и не разбили.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="slider">
+        <div class="slider__container container">
+            <div class="slider__track">
+                <div class="slider__slide slide">
+                    <img class="slide__image" src="{{ asset('img/main-photo2.jpg') }}" alt="Интернет-магазин инструментов">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="about">
+        <div class="about__container container">
+            <h2 class="about__title">О нас</h2>
+            <div class="about__grid">
+                <div class="about__left-column">
+                    <div class="about__card about__card--map">
+                        <div class="about__card-content">
+                            <h3 class="about__card-title">30 магазинов</h3>
+                            <p class="about__card-desc">Расположенны по кемеровской области</p>
+                        </div>
+                        <img class="about__card-image" src="{{ asset('img/img-about/map.jpg') }}" alt="Карта расположения магазинов">
+                    </div>
+
+                    <div class="about__bottom-row">
+                        <div class="about__card about__card--clients">
+                            <div class="about__card-content">
+                                <h3 class="about__card-title">1 000 000 человек</h3>
+                                <p class="about__card-desc">Из разных сфер деятельности обслуживаем ежемесячно</p>
+                            </div>
+                        </div>
+
+                        <div class="about__card about__card--experience">
+                            <div class="about__card-content">
+                                <h3 class="about__card-title">6 лет</h3>
+                                <p class="about__card-desc">Заботимся о наших клиентах - предлагаем низкие цены и быструю доставку</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__right-column">
+                    <div class="about__card about__card--brands">
+                        <div class="about__card-content">
+                            <h3 class="about__card-title">2000+ брендов</h3>
+                            <p class="about__card-desc">Наши партнёры, представлены на нашем сайте - от экономкласса до профессиональных</p>
+                        </div>
+                        <img class="about__card-image" src="{{ asset('img/img-about/sheterenki.jpg') }}" alt="Изображение шестерёнок">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__col footer__col--nav">
+                <h3 class="footer__title">НАВИГАЦИЯ</h3>
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/">Главная</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/catalog">Каталог</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/about">О нас</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/contacts">Контакты</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/services">Услуги</a></li>
+                </ul>
+            </div>
+            <div class="footer__col footer__col--contacts">
+                <h3 class="footer__title">Свяжитесь с нами</h3>
+                <h4 class="footer__subtitle">E-mail:</h4>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">info@shurik.ru</a></p>
+                <h4 class="footer__subtitle">Служба поддержки:</h4>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">+7 (900) 888 88 88</a></p>
+            </div>
+            <div class="footer__col footer__col--subscribe">
+                <div class="footer__social">
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">VK</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">MAX</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">DZEN</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">RUTUBE</a></li>
+                    </ul>
+                </div>
+                <div class="footer__subscribe-form">
+                    <input class="footer__subscribe-input" type="email" placeholder="Введите ваш email, чтобы узнавать первым о новинках">
+                    <button class="footer__subscribe-btn" type="submit">→</button>
+                </div>
+                <div class="footer__legal">
+                    <a class="footer__legal-link" href="#">Пользовательское соглашение</a>
+                    <a class="footer__legal-link" href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">© Шурик, 2015-2025 Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
+
