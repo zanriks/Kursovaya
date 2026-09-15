@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style-about.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <a class="header__logo logo" href="/">
+                <span class="logo__text">АСТМАСТЕР</span>
+            </a>
+
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="/">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/catalog.html">Каталог</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/about.html">О нас</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/contacts.html">Контакты</a></li>
+                    <li class="nav__item"><a class="nav__link" href="/services.html">Услуги</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__search search">
+                <input class="search__input" type="text" placeholder="Поиск...">
+            </div>
+
+            <input type="checkbox" id="burger-toggle" class="burger-toggle" aria-hidden="true">
+
+            <label for="burger-toggle" class="burger-menu">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+            </label>
+
+            <div class="mobile-menu">
+                <nav class="mobile-nav">
+                    <ul class="mobile-menu__list">
+                        <li><a class="mobile-menu__link" href="/">Главная</a></li>
+                        <li><a class="mobile-menu__link" href="/catalog_instrument.html">Каталог</a></li>
+                        <li><a class="mobile-menu__link" href="/about.html">О нас</a></li>
+                        <li><a class="mobile-menu__link" href="/contacts.html">Контакты</a></li>
+                        <li><a class="mobile-menu__link" href="/services.html">Услуги</a></li>
+                        <li><a class="mobile-menu__link" href="/izbrannoe.html">Избранное</a></li>
+                        <li><a class="mobile-menu__link" href="/profile.html">Профиль</a></li>
+                        <li><a class="mobile-menu__link" href="/cart.html">Корзина</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="mobile-menu__overlay"></div>
+
+            <div class="header__actions actions">
+                <a href="/izbrannoe.html" class="actions__icon actions__icon--heart">
+                    <img src="img/header-icon/heart.svg" alt="Избранное">
+                </a>
+                <a href="/profile.html" class="actions__icon actions__icon--user">
+                    <img src="img/header-icon/profile.svg" alt="Профиль">
+                </a>
+                <a href="/cart.html" class="actions__icon actions__icon--cart">
+                    <img src="img/header-icon/cart.svg" alt="Корзина">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumbs">
+        <nav class="breadcrumbs__container">
+        <ol class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+            <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
+            <li class="breadcrumbs__item"><span class="breadcrumbs__current">О нас</span></li>
+        </ol>
+        <h1 class="page__title">О нас</h1>
+        </nav>
+    </div>
+
+    <section class="intro">
+        <div class="intro__container">
+            <div class="intro__image">
+                <img src="img/img-about/grupovaya_photographiya 1.png" alt="Наша команда" class="intro__img" />
+            </div>
+            <p class="intro__text">
+                Наш строительный магазин — это более чем 5 лет уверенной работы на рынке. За эти годы мы стали надежным партнером для тысяч профессионалов и домашних мастеров, которые доверяют нам самое ценное — свой дом.
+            </p>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="team__container">
+            <h2 class="team__title">Наша команда</h2>
+            <div class="team__members">
+                <div class="member">
+                    <img src="img/img-about/upravlyauhiy.png" alt="Управляющий" class="member__photo">
+                    <p class="member__role">Управляющий</p>
+                </div>
+                <div class="member">
+                    <img src="img/img-about/specialist.png" alt="Специалист по подбору материалов" class="member__photo">
+                    <p class="member__role">Специалист по подбору материалов</p>
+                </div>
+                <div class="member">
+                    <img src="img/img-about/logist.png" alt="Логист" class="member__photo">
+                    <p class="member__role">Логист</p>
+                </div>
+                <div class="member">
+                    <img src="img/img-about/driver.png" alt="Водитель" class="member__photo">
+                    <p class="member__role">Водитель</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="products__container">
+            <h2 class="products__title">В магазинах АСТМАСТЕР вы найдёте:</h2>
+            <div class="products__list">
+                <p class="products__item">Строительные материалы: цемент, кирпичи, блоки, древесина и многое другое.</p>
+                <p class="products__item">Отделочные материалы: обои, плитка, краски, напольные покрытия.</p>
+                <p class="products__item">Сантехника: оборудование для ванных комнат, кухни и водоснабжения.</p>
+                <p class="products__item">Инструменты: профессиональные и бытовые инструменты для ремонта и строительства.</p>
+                <p class="products__item">Дача и сад: семена, рассада, саженцы плодовых и декоративных культур, грунты, техника для сада и огорода, садовый инвентарь</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="company">
+        <div class="company__container">
+            <h2 class="company__title">Реквизиты компании:</h2>
+            <div class="company__info">
+                <p class="company__line">Общество с ограниченной ответственностью «Строительный магазин «АСТМАСТЕР»</p>
+                <p class="company__line">ИНН: 7392543549</p>
+                <p class="company__line">КПП: 997350001</p>
+                <p class="company__line">ОГРН: 1067841986742</p>
+                <p class="company__line">Юридический адрес: 650000, г. Кемерово, Красноармейская улица, 136</p>
+                <p class="company__line">Р/с: 40702843255570424182</p>
+                <p class="company__line">Северо-Западный банк ПАО «СБЕРБАНК»</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__col footer__col--nav">
+                <h3 class="footer__title">НАВИГАЦИЯ</h3>
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/">Главная</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/catalog.html">Каталог</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/about.html">О нас</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/contacts.html">Контакты</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="/services.html">Услуги</a></li>
+                </ul>
+            </div>
+            <div class="footer__col footer__col--contacts">
+                <h3 class="footer__title">Свяжитесь с нами</h3>
+                <h4 class="footer__subtitle">E-mail:</h4>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">info@shurik.ru</a></p>
+                <h4 class="footer__subtitle">Служба поддержки:</h4>
+                <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">+7 (900) 888 88 88</a></p>
+            </div>
+            <div class="footer__col footer__col--subscribe">
+                <div class="footer__social">
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">VK</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">MAX</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">DZEN</a></li>
+                        <li class="footer__social-item"><a class="footer__social-link" href="#">RUTUBE</a></li>
+                    </ul>
+                </div>
+                <div class="footer__subscribe-form">
+                    <input class="footer__subscribe-input" type="email" placeholder="Введите ваш email, чтобы узнавать первым о новинках">
+                    <button class="footer__subscribe-btn" type="submit">→</button>
+                </div>
+                <div class="footer__legal">
+                    <a class="footer__legal-link" href="#">Пользовательское соглашение</a>
+                    <a class="footer__legal-link" href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">© Шурик, 2015-2025 Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
