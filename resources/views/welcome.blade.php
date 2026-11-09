@@ -28,49 +28,20 @@
     <div class="categories__container container">
         <div class="categories__header">
             <h2 class="categories__title">Каталог</h2>
-            <a class="categories__all-link" href="/catalog">Все категории > </a>
+            <a class="categories__all-link" href="/catalog">Все категории ></a>
         </div>
+
         <ul class="categories__list">
-            <li class="categories__item category">
-                <a href="/catalog/instrument">
-                    <img class="category__image" src="{{ asset('img/categories_main/instrumenti_main.png') }}"
-                         alt="Инструменты">
-                    <p class="category__name">Инструменты</p>
-                </a>
-            </li>
-            <li class="categories__item category">
-                <a href="/catalog/instrument">
-                    <img class="category__image" src="{{ asset('img/categories_main/electrika.png') }}" alt="Электрика">
-                    <p class="category__name">Электрика</p>
-                </a>
-            </li>
-            <li class="categories__item category">
-                <a href="/catalog/instrument">
-                    <img class="category__image" src="{{ asset('img/categories_main/gvozdi_main.png') }}"
-                         alt="Крепеж и фурнитура">
-                    <p class="category__name">Крепеж и фурнитура</p>
-                </a>
-            </li>
-            <li class="categories__item category">
-                <a href="/catalog/instrument">
-                    <img class="category__image" src="{{ asset('img/categories_main/generator.png') }}"
-                         alt="Силовая техника">
-                    <p class="category__name">Силовая техника</p>
-                </a>
-            </li>
-            <li class="categories__item category">
-                <a href="/catalog/instrument">
-                    <img class="category__image" src="{{ asset('img/categories_main/molotok.png') }}"
-                         alt="Ручной инструмент">
-                    <p class="category__name">Ручной инструмент</p>
-                </a>
-            </li>
-            <li class="categories__item category">
-                <a href="/catalog/instrument">
-                    <img class="category__image" src="{{ asset('img/categories_main/plitka_main.webp') }}" alt="Плитка">
-                    <p class="category__name">Плитка</p>
-                </a>
-            </li>
+            @foreach ($categories as $category)
+                <li class="categories__item category">
+                    <a href="/catalog">
+                        <img class="category__image"
+                             src="{{ asset($category->image_url ?? 'img/categories_main/instrumenti_main.png') }}"
+                             alt="{{ $category->name }}">
+                        <p class="category__name">{{ $category->name }}</p>
+                    </a>
+                </li>
+            @endforeach
         </ul>
     </div>
 </section>
@@ -175,106 +146,57 @@
             <h2 class="hits__title">Хиты продаж</h2>
             <a class="hits__catalog-link" href="/catalog">Каталог ></a>
         </div>
+
         <ul class="hits__list">
-            <li class="hits__item product">
-                <a href="/product_card" style="text-decoration: none;">
-                    <img class="product__image" src="{{ asset('img/hits-photo/perforator.png') }}"
-                         alt="Гипсокартон влагостойкий">
-                    <div class="product__badge product__badge--discount">-13%</div>
-                    <div class="product__price">
-                        <span class="product__price-current">26 640 ₽</span>
-                        <span class="product__price-old">29 990 ₽</span>
-                    </div>
-                    <h3 class="product__name">Гипсокартон влагостойкий (ГКЛВ), лист 1200x2500x12,5 мм</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.84</span>
-                        <span class="product__reviews">560 отзывов</span>
-                    </div>
-                    <div class="product__actions">
-                        <span class="product__action product__action--add">В корзину</span>
-                        <span class="product__action product__action--favorite"><img
-                                src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
-                    </div>
-                </a>
-            </li>
-            <li class="hits__item product">
-                <a href="/product_card" style="text-decoration: none;">
-                    <img class="product__image" src="{{ asset('img/hits-photo/gipsokarton.png') }}"
-                         alt="Гипсокартон влагостойкий">
-                    <div class="product__price">
-                        <span class="product__price-current">550 ₽</span>
-                    </div>
-                    <h3 class="product__name">Гипсокартон влагостойкий (ГКЛВ), лист 1200x2500x12,5 мм</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.84</span>
-                        <span class="product__reviews">560 отзывов</span>
-                    </div>
-                    <div class="product__actions">
-                        <span class="product__action product__action--add">В корзину</span>
-                        <span class="product__action product__action--favorite"><img
-                                src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
-                    </div>
-                </a>
-            </li>
-            <li class="hits__item product">
-                <a href="/product_card" style="text-decoration: none;">
-                    <img class="product__image" src="{{ asset('img/hits-photo/spc-plitka.webp') }}"
-                         alt="SPC плитка Дуб Санкт-Петербург">
-                    <div class="product__price">
-                        <span class="product__price-current">1220 ₽</span>
-                    </div>
-                    <h3 class="product__name">SPC плитка Дуб Санкт-Петербург класс 43 толщина 4 мм 2.16 м²</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.9</span>
-                        <span class="product__reviews">46 отзывов</span>
-                    </div>
-                    <div class="product__actions">
-                        <span class="product__action product__action--add">В корзину</span>
-                        <span class="product__action product__action--favorite"><img
-                                src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
-                    </div>
-                </a>
-            </li>
-            <li class="hits__item product">
-                <a href="/product_card" style="text-decoration: none;">
-                    <img class="product__image" src="{{ asset('img/hits-photo/ceresit.png') }}"
-                         alt="Ceresit Клей для плитки эластичный">
-                    <div class="product__badge product__badge--discount">-13%</div>
-                    <div class="product__price">
-                        <span class="product__price-current">26 640 ₽</span>
-                        <span class="product__price-old">29 990 ₽</span>
-                    </div>
-                    <h3 class="product__name">Ceresit Клей для плитки эластичный CM 14, 25 кг</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.6</span>
-                        <span class="product__reviews">394 отзыва</span>
-                    </div>
-                    <div class="product__actions">
-                        <span class="product__action product__action--add">В корзину</span>
-                        <span class="product__action product__action--favorite"><img
-                                src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
-                    </div>
-                </a>
-            </li>
-            <li class="hits__item product">
-                <a href="/product_card" style="text-decoration: none;">
-                    <img class="product__image" src="{{ asset('img/hits-photo/ceresit.png') }}"
-                         alt="Ceresit Клей для плитки эластичный">
-                    <div class="product__price">
-                        <span class="product__price-current">940 ₽</span>
-                    </div>
-                    <h3 class="product__name">Ceresit Клей для плитки эластичный CM 14, 25 кг</h3>
-                    <div class="product__rating">
-                        <span class="product__stars"><img src="{{ asset('img/icons/star.svg') }}" alt=""> 4.6</span>
-                        <span class="product__reviews">394 отзыва</span>
-                    </div>
-                    <div class="product__actions">
-                        <span class="product__action product__action--add">В корзину</span>
-                        <span class="product__action product__action--favorite"><img
-                                src="{{ asset('img/icons/heart.svg') }}" alt=""></span>
-                    </div>
-                </a>
-            </li>
+            @forelse ($hits as $product)
+                <li class="hits__item product">
+                    <a href="/product/{{ $product->slug }}" style="text-decoration: none;">
+                        <img class="product__image"
+                             src="{{ asset($product->primaryImage?->image_url ?? 'img/hits-photo/perforator.png') }}"
+                             alt="{{ $product->name }}">
+
+                        @if ($product->old_price && $product->old_price > $product->price)
+                            <div class="product__badge product__badge--discount">
+                                -{{ round((1 - $product->price / $product->old_price) * 100) }}%
+                            </div>
+                        @endif
+
+                        <div class="product__price">
+                            <span class="product__price-current">
+                                {{ number_format($product->price, 0, ',', ' ') }} ₽
+                            </span>
+                            @if ($product->old_price)
+                                <span class="product__price-old">
+                                    {{ number_format($product->old_price, 0, ',', ' ') }} ₽
+                                </span>
+                            @endif
+                        </div>
+
+                        <h3 class="product__name">{{ $product->name }}</h3>
+
+                        <div class="product__rating">
+                            <span class="product__stars">
+                                <img src="{{ asset('img/icons/star.svg') }}" alt="">
+                                {{ number_format($product->rating_cache, 2) }}
+                            </span>
+                            @if ($product->reviews_count > 0)
+                                <span class="product__reviews">
+                                    {{ $product->reviews_count }} отзывов
+                                </span>
+                            @endif
+                        </div>
+
+                        <div class="product__actions">
+                            <span class="product__action product__action--add">В корзину</span>
+                            <span class="product__action product__action--favorite">
+                                <img src="{{ asset('img/icons/heart.svg') }}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                </li>
+            @empty
+                <li class="hits__item product">Хиты пока не добавлены</li>
+            @endforelse
         </ul>
     </div>
 </section>

@@ -15,16 +15,20 @@
 
     <div class="breadcrumbs">
         <nav class="breadcrumbs__container">
-        <ol class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
-            <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/catalog">Каталог</a></li>
-            <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/catalog/instrument">Каталог товаров</a></li>
-            <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
-            <li class="breadcrumbs__item"><span class="breadcrumbs__current">Инструменты</span></li>
-        </ol>
-        <h1 class="page__title">Инструменты</h1>
+            <ol class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__link" href="/">Главная</a>
+                </li>
+                <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__link" href="/catalog">Каталог</a>
+                </li>
+                <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
+                <li class="breadcrumbs__item">
+                    <span class="breadcrumbs__current">{{ $category->name }}</span>
+                </li>
+            </ol>
+            <h1 class="page__title">{{ $category->name }}</h1>
         </nav>
     </div>
 
@@ -146,210 +150,61 @@
                     <span>Выбрать фильтры</span>
                 </button>
                 <ul class="products__grid">
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                            <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
+                    @forelse ($products as $product)
+                        <li class="products__item product-card">
+                            <a href="/product/{{ $product->slug }}" style="color: inherit; text-decoration: none;">
+                                <img class="product-card__image"
+                                    src="{{ asset($product->primaryImage?->image_url ?? 'img/hits-photo/perforator.png') }}"
+                                    alt="{{ $product->name }}">
+                            </a>
 
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
-                    <li class="products__item product-card">
-                        <img class="product-card__image" src="{{ asset('img/hits-photo/perforator.png') }}" alt="Перфоратор Bosch GBH 240">
-                        <div class="product-card__badge product-card__badge--discount">-13%</div>
-                        <div class="product-card__price">
-                            <span class="product-card__price-current">26 640 ₽</span>
-                            <span class="product-card__price-old">29 990 ₽</span>
-                        </div>
-                        <a href="#" style="color: inherit; text-decoration: none;"><h3 class="product-card__name">Перфоратор Bosch GBH 240 [SDS-plus, 790 Вт, 2.7 Дж, 930 об/мин, 4200 уд/мин, кейс, 2.8 кг]</h3></a>
-                        <div class="product-card__rating">
-                            <span class="product-card__stars"><img src="{{ asset('img/icons/star.svg') }}" alt="Отзывы"> 4.6</span>
-                            <span class="product-card__reviews">394 отзыва</span>
-                        </div>
-                        <div class="product-card__actions">
-                            <button class="product-card__action product-card__action--add">В корзину</button>
-                            <button class="product-card__action product-card__action--favorite"><img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное"></button>
-                        </div>
-                    </li>
+                            @if ($product->old_price && $product->old_price > $product->price)
+                                <div class="product-card__badge product-card__badge--discount">
+                                    -{{ round((1 - $product->price / $product->old_price) * 100) }}%
+                                </div>
+                            @endif
+
+                            <div class="product-card__price">
+                                <span class="product-card__price-current">
+                                    {{ number_format($product->price, 0, ',', ' ') }} ₽
+                                </span>
+                                @if ($product->old_price)
+                                    <span class="product-card__price-old">
+                                        {{ number_format($product->old_price, 0, ',', ' ') }} ₽
+                                    </span>
+                                @endif
+                            </div>
+
+                            <a href="/product/{{ $product->slug }}" style="color: inherit; text-decoration: none;">
+                                <h3 class="product-card__name">{{ $product->name }}</h3>
+                            </a>
+
+                            <div class="product-card__rating">
+                                <span class="product-card__stars">
+                                    <img src="{{ asset('img/icons/star.svg') }}" alt="">
+                                    {{ number_format($product->rating_cache, 2) }}
+                                </span>
+                                @if ($product->reviews_count > 0)
+                                    <span class="product-card__reviews">
+                                        {{ $product->reviews_count }} отзывов
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="product-card__actions">
+                                <button class="product-card__action product-card__action--add">
+                                    В корзину
+                                </button>
+                                <button class="product-card__action product-card__action--favorite">
+                                    <img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное">
+                                </button>
+                            </div>
+                        </li>
+                    @empty
+                        <li class="products__item product-card">
+                            В этой категории пока нет товаров
+                        </li>
+                    @endforelse
                 </ul>
                 <button class="show__more-btn">Показать ещё</button>
             </div>

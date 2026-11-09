@@ -30,7 +30,7 @@
                 <nav class="mobile-nav">
                     <ul class="mobile-menu__list">
                         <li><a class="mobile-menu__link" href="/">Главная</a></li>
-                        <li><a class="mobile-menu__link" href="/catalog/instrument">Каталог</a></li>
+                        <li><a class="mobile-menu__link" href="/catalog">Каталог</a></li>
                         <li><a class="mobile-menu__link" href="/about">О нас</a></li>
                         <li><a class="mobile-menu__link" href="/contacts">Контакты</a></li>
                         <li><a class="mobile-menu__link" href="/services">Услуги</a></li>
