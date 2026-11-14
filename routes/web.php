@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
@@ -35,6 +36,16 @@ Route::post('/logout', [AuthController::class, 'logout'])
 Route::get('/profile', [AuthController::class, 'profile'])
     ->middleware('auth')
     ->name('profile');
+
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::redirect('/', '/admin/products')->name('dashboard');
+
+        Route::resource('products', AdminProductController::class)
+            ->except(['show']);
+    });
 
 Route::get('/cart', function () {
     return view('cart');

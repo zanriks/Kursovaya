@@ -162,3 +162,15 @@
         padding: 0 20px;
     }
 }
+.actions__btn--admin {
+    display: block;
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+}
+
+.actions__btn--admin:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}

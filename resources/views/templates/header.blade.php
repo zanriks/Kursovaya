@@ -11,6 +11,13 @@
                     <li class="nav__item"><a class="nav__link" href="/about">О нас</a></li>
                     <li class="nav__item"><a class="nav__link" href="/contacts">Контакты</a></li>
                     <li class="nav__item"><a class="nav__link" href="/services">Услуги</a></li>
+                    @auth
+                        @if (auth()->user()->isAdmin())
+                            <li class="nav__item">
+                                <a class="nav__link" href="{{ route('admin.products.index') }}">Админка</a>
+                            </li>
+                        @endif
+                    @endauth
                 </ul>
             </nav>
 
@@ -34,6 +41,13 @@
                         <li><a class="mobile-menu__link" href="/about">О нас</a></li>
                         <li><a class="mobile-menu__link" href="/contacts">Контакты</a></li>
                         <li><a class="mobile-menu__link" href="/services">Услуги</a></li>
+                        @auth
+                            @if (auth()->user()->isAdmin())
+                                <li>
+                                    <a class="mobile-menu__link" href="{{ route('admin.products.index') }}">Админка</a>
+                                </li>
+                            @endif
+                        @endauth
                         <li><a class="mobile-menu__link" href="/favorites">Избранное</a></li>
                         <li><a class="mobile-menu__link" href="/profile">Профиль</a></li>
                         <li><a class="mobile-menu__link" href="/cart">Корзина</a></li>

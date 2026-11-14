@@ -13,7 +13,7 @@
         <div class="footer__col footer__col--contacts">
             <h3 class="footer__title">Свяжитесь с нами</h3>
             <h4 class="footer__subtitle">E-mail:</h4>
-            <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">info@shurik.ru</a></p>
+            <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">info@astmaster.ru</a></p>
             <h4 class="footer__subtitle">Служба поддержки:</h4>
             <p class="footer__contact"><a href="#" style="text-decoration: none; color: #666;">+7 (900) 888 88 88</a></p>
         </div>
@@ -37,6 +37,6 @@
         </div>
     </div>
     <div class="footer__bottom">
-        <p class="footer__copyright">© Шурик, 2015-2025 Все права защищены</p>
+        <p class="footer__copyright">© АСТМАСТЕР, 2015-2025 Все права защищены</p>
     </div>
 </footer>

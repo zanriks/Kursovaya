@@ -19,6 +19,7 @@ class Product extends Model
         'slug',
         'description',
         'price',
+        'old_price',
         'rating_cache',
         'is_active',
         'is_hit',
@@ -29,6 +30,7 @@ class Product extends Model
     {
         return [
             'price' => 'decimal:2',
+            'old_price' => 'decimal:2',
             'rating_cache' => 'decimal:2',
             'is_active' => 'boolean',
             'is_hit' => 'boolean',

@@ -47,6 +47,12 @@
             </div>
 
             <div class="profile__actions actions">
+                @if (auth()->user()->isAdmin())
+                    <a href="{{ route('admin.products.index') }}" class="actions__btn actions__btn--admin">
+                        Админ-панель
+                    </a>
+                @endif
+
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="actions__btn actions__btn--logout">Выйти</button>
