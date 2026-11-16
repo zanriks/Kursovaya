@@ -21,9 +21,14 @@
                 </ul>
             </nav>
 
-            <div class="header__search search">
-                <input class="search__input" type="text" placeholder="Поиск...">
-            </div>
+            <form class="header__search search" method="GET" action="{{ route('search') }}">
+                <input class="search__input"
+                       type="search"
+                       name="q"
+                       value="{{ request('q') }}"
+                       placeholder="Поиск..."
+                       aria-label="Поиск товаров">
+            </form>
 
             <input type="checkbox" id="burger-toggle" class="burger-toggle" aria-hidden="true">
 

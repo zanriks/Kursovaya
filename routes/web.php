@@ -9,18 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/catalog', [CatalogController::class, 'index']);
-Route::get('/catalog/{slug}', [CatalogController::class, 'show']);
-
-Route::get('/product/{slug}', [ProductController::class, 'show']);
-Route::get('/product_card', function () {
-    $product = \App\Models\Product::query()
-        ->where('is_active', true)
-        ->firstOrFail();
-
-    return redirect('/product/' . $product->slug);
-});
-
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.store');
@@ -47,6 +35,19 @@ Route::middleware(['auth', 'admin'])
             ->except(['show']);
     });
 
+Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('/catalog/{slug}', [CatalogController::class, 'show']);
+
+Route::get('/search', [CatalogController::class, 'search'])->name('search');
+
+Route::get('/product/{slug}', [ProductController::class, 'show']);
+Route::get('/product_card', function () {
+    $product = \App\Models\Product::query()
+        ->where('is_active', true)
+        ->firstOrFail();
+
+    return redirect('/product/' . $product->slug);
+});
 Route::get('/cart', function () {
     return view('cart');
 });
