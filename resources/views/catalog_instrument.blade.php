@@ -36,112 +36,111 @@
     <section class="category-page">
         <div class="category-page__container container">
             <aside class="category-page__filters filters">
-                <div class="filters__group">
-                    <h3 class="filters__title">Цена, ₽</h3>
-                    <div class="filters__price-range">
-                        <input class="filters__price-input filters__price-input--min" type="number" placeholder="от 0">
-                        <input class="filters__price-input filters__price-input--max" type="number" placeholder="до 95990">
+                <form method="GET" action="{{ route('catalog.show', $category->slug) }}">
+
+                    @if ($errors->any())
+                        <div class="filters__error">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
+
+                    <div class="filters__group">
+                        <h3 class="filters__title">Цена, ₽</h3>
+
+                        <div class="filters__price-range">
+                            <input class="filters__price-input filters__price-input--min"
+                                   type="number"
+                                   name="price_min"
+                                   min="0"
+                                   value="{{ old('price_min', request('price_min')) }}"
+                                   placeholder="от 0">
+
+                            <input class="filters__price-input filters__price-input--max"
+                                   type="number"
+                                   name="price_max"
+                                   min="0"
+                                   value="{{ old('price_max', request('price_max')) }}"
+                                   placeholder="до 95990">
+                        </div>
+
+                        <ul class="filters__price-list">
+                            @foreach ([
+                                '0-7000' => 'До 7 000 ₽',
+                                '7001-10000' => '7 001 - 10 000 ₽',
+                                '10001-16000' => '10 001 - 16 000 ₽',
+                                '16001-20000' => '16 001 - 20 000 ₽',
+                                '20001-999999999' => 'Более 20 000 ₽',
+                            ] as $value => $label)
+                                <li class="filters__price-item">
+                                    <label class="filters__price-label">
+                                        <input class="filters__price-checkbox"
+                                               type="radio"
+                                               name="price_range"
+                                               value="{{ $value }}"
+                                            @checked(request('price_range') === $value)>
+                                        {{ $label }}
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <ul class="filters__price-list">
-                        <li class="filters__price-item">
-                            <label class="filters__price-label">
-                                <input class="filters__price-checkbox" type="checkbox">
-                                Менее 7000 ₽
-                            </label>
-                        </li>
-                        <li class="filters__price-item">
-                            <label class="filters__price-label">
-                                <input class="filters__price-checkbox" type="checkbox">
-                                7001 - 10 000 ₽
-                            </label>
-                        </li>
-                        <li class="filters__price-item">
-                            <label class="filters__price-label">
-                                <input class="filters__price-checkbox" type="checkbox">
-                                10 001 - 16 000 ₽
-                            </label>
-                        </li>
-                        <li class="filters__price-item">
-                            <label class="filters__price-label">
-                                <input class="filters__price-checkbox" type="checkbox">
-                                16 001 - 20 000 ₽
-                            </label>
-                        </li>
-                        <li class="filters__price-item">
-                            <label class="filters__price-label">
-                                <input class="filters__price-checkbox" type="checkbox">
-                                20 000 ₽ и более
-                            </label>
-                        </li>
-                    </ul>
-                </div>
 
-                <div class="filters__group">
-                    <h3 class="filters__title">Производители</h3>
-                    <ul class="filters__manufacturer-list">
-                        <li class="filters__manufacturer-item">
-                            <label class="filters__manufacturer-label">
-                                <input class="filters__manufacturer-checkbox" type="checkbox">
-                                DEKO
-                            </label>
-                        </li>
-                        <li class="filters__manufacturer-item">
-                            <label class="filters__manufacturer-label">
-                                <input class="filters__manufacturer-checkbox" type="checkbox">
-                                Bosch
-                            </label>
-                        </li>
-                        <li class="filters__manufacturer-item">
-                            <label class="filters__manufacturer-label">
-                                <input class="filters__manufacturer-checkbox" type="checkbox">
-                                Makita
-                            </label>
-                        </li>
-                        <li class="filters__manufacturer-item">
-                            <label class="filters__manufacturer-label">
-                                <input class="filters__manufacturer-checkbox" type="checkbox">
-                                Интерскол
-                            </label>
-                        </li>
-                        <li class="filters__manufacturer-item">
-                            <label class="filters__manufacturer-label">
-                                <input class="filters__manufacturer-checkbox" type="checkbox">
-                                Лепсе
-                            </label>
-                        </li>
-                        <li class="filters__manufacturer-item">
-                            <label class="filters__manufacturer-label">
-                                <input class="filters__manufacturer-checkbox" type="checkbox">
-                                Hilti
-                            </label>
-                        </li>
-                        <li class="filters__manufacturer-item">
-                            <label class="filters__manufacturer-label">
-                                <input class="filters__manufacturer-checkbox" type="checkbox">
-                                Фиолент
-                            </label>
-                        </li>
-                    </ul>
-                    <button class="filters__show-more">Показать ещё 115</button>
-                </div>
+                    @if ($manufacturers->isNotEmpty())
+                        <div class="filters__group">
+                            <h3 class="filters__title">Производители</h3>
 
-                <div class="filters__group">
-                    <ul class="filters__extra-list">
-                        <li class="filters__extra-item">
-                            <label class="filters__extra-label">
-                                <input class="filters__extra-checkbox" type="checkbox">
-                                Рейтинг 4 и выше
-                            </label>
-                        </li>
-                        <li class="filters__extra-item">
-                            <label class="filters__extra-label">
-                                <input class="filters__extra-checkbox" type="checkbox">
-                                Надёжные модели
-                            </label>
-                        </li>
-                    </ul>
-                    <a class="filters__all-link" href="/filters">Все фильтры →</a>
-                </div>
+                            <ul class="filters__manufacturer-list">
+                                @foreach ($manufacturers as $manufacturer)
+                                    <li class="filters__manufacturer-item">
+                                        <label class="filters__manufacturer-label">
+                                            <input class="filters__manufacturer-checkbox"
+                                                   type="checkbox"
+                                                   name="manufacturer[]"
+                                                   value="{{ $manufacturer }}"
+                                                @checked(in_array($manufacturer, (array) request('manufacturer', []), true))>
+                                            {{ $manufacturer }}
+                                        </label>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="filters__group">
+                        <ul class="filters__extra-list">
+                            <li class="filters__extra-item">
+                                <label class="filters__extra-label">
+                                    <input class="filters__extra-checkbox"
+                                           type="checkbox"
+                                           name="rating_min"
+                                           value="4"
+                                        @checked((float) request('rating_min', 0) >= 4)>
+                                    Рейтинг 4 и выше
+                                </label>
+                            </li>
+
+                            <li class="filters__extra-item">
+                                <label class="filters__extra-label">
+                                    <input class="filters__extra-checkbox"
+                                           type="checkbox"
+                                           name="is_hit"
+                                           value="1"
+                                        @checked(request()->boolean('is_hit'))>
+                                    Хиты продаж
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" class="filters__apply">
+                        Применить фильтры
+                    </button>
+
+                    <a class="filters__reset"
+                       href="{{ route('catalog.show', $category->slug) }}">
+                        Сбросить
+                    </a>
+                </form>
             </aside>
 
 

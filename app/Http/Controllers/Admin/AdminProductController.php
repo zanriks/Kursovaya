@@ -118,6 +118,7 @@ class AdminProductController extends Controller
             'category_id' => ['required', 'integer', 'exists:categories,category_id'],
             'sku' => ['required', 'string', 'max:100', $skuRule],
             'name' => ['required', 'string', 'max:255'],
+            'manufacturer' => ['nullable', 'string', 'max:100'],
             'slug' => ['nullable', 'string', 'max:255', $slugRule],
             'description' => ['nullable', 'string'],
             'price' => ['required', 'numeric', 'min:0'],

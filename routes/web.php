@@ -36,7 +36,7 @@ Route::middleware(['auth', 'admin'])
     });
 
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
-Route::get('/catalog/{slug}', [CatalogController::class, 'show']);
+Route::get('/catalog/{slug}', [CatalogController::class, 'show'])->name('catalog.show');
 
 Route::get('/search', [CatalogController::class, 'search'])->name('search');
 

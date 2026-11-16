@@ -19,22 +19,81 @@ class CatalogController extends Controller
         return view('catalog', compact('categories'));
     }
 
-    public function show(string $slug)
+    public function show(Request $request, string $slug)
     {
         $category = Category::query()
             ->where('slug', $slug)
             ->where('is_active', true)
             ->firstOrFail();
 
-        $products = $category->products()
+        $data = $request->validate([
+            'price_min' => ['nullable', 'numeric', 'min:0'],
+            'price_max' => ['nullable', 'numeric', 'min:0'],
+            'price_range' => ['nullable', 'regex:/^\d+-\d+$/'],
+            'manufacturer' => ['nullable', 'array'],
+            'manufacturer.*' => ['string', 'max:100'],
+            'rating_min' => ['nullable', 'numeric', 'between:0,5'],
+            'is_hit' => ['nullable', 'boolean'],
+        ]);
+
+        $productsQuery = $category->products()
             ->with('primaryImage')
             ->withCount('reviews')
-            ->where('is_active', true)
+            ->where('is_active', true);
+
+        // Цена от
+        if ($request->filled('price_min')) {
+            $productsQuery->where('price', '>=', $data['price_min']);
+        }
+
+        // Цена до
+        if ($request->filled('price_max')) {
+            $productsQuery->where('price', '<=', $data['price_max']);
+        }
+
+        // Быстрый диапазон цены
+        if ($request->filled('price_range')) {
+            [$min, $max] = explode('-', $data['price_range'], 2);
+
+            $productsQuery->whereBetween('price', [
+                (float) $min,
+                (float) $max,
+            ]);
+        }
+
+        // Производители
+        if (!empty($data['manufacturer'])) {
+            $productsQuery->whereIn('manufacturer', $data['manufacturer']);
+        }
+
+        // Рейтинг 4 и выше
+        if ($request->filled('rating_min')) {
+            $productsQuery->where('rating_cache', '>=', $data['rating_min']);
+        }
+
+        // Только хиты
+        if ($request->boolean('is_hit')) {
+            $productsQuery->where('is_hit', true);
+        }
+
+        $products = $productsQuery
             ->orderByDesc('is_hit')
             ->orderByDesc('rating_cache')
             ->get();
 
-        return view('catalog_instrument', compact('category', 'products'));
+        $manufacturers = Product::query()
+            ->where('category_id', $category->category_id)
+            ->where('is_active', true)
+            ->whereNotNull('manufacturer')
+            ->distinct()
+            ->orderBy('manufacturer')
+            ->pluck('manufacturer');
+
+        return view('catalog_instrument', compact(
+            'category',
+            'products',
+            'manufacturers'
+        ));
     }
 
     public function search(Request $request)

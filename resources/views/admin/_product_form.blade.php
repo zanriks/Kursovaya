@@ -52,6 +52,14 @@
             </label>
 
             <label class="admin-form__label">
+                Производитель
+                <input type="text"
+                       name="manufacturer"
+                       class="admin-form__input"
+                       value="{{ old('manufacturer', $product?->manufacturer) }}">
+            </label>
+
+            <label class="admin-form__label">
                 Категория
                 <select name="category_id" class="admin-form__input" required>
                     <option value="">— Выберите категорию —</option>

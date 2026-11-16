@@ -16,6 +16,7 @@ class Product extends Model
         'category_id',
         'sku',
         'name',
+        'manufacturer',
         'slug',
         'description',
         'price',
