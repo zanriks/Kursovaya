@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -120,5 +123,131 @@ class AuthController extends Controller
     public function profile()
     {
         return view('profile', ['user' => Auth::user()]);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = $request->user();
+
+        $data = $request->validate([
+            'login' => [
+                'required',
+                'string',
+                'min:3',
+                'max:50',
+                'regex:/^[A-Za-z0-9_-]+$/',
+                Rule::unique('users', 'login')->ignore($user->user_id, 'user_id'),
+            ],
+            'last_name' => ['nullable', 'string', 'max:100'],
+            'first_name' => ['nullable', 'string', 'max:100'],
+            'surname' => ['nullable', 'string', 'max:100'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users', 'email')->ignore($user->user_id, 'user_id'),
+            ],
+            'phone' => ['nullable', 'string', 'max:20'],
+            'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'remove_avatar' => ['nullable', 'boolean'],
+
+            'current_password' => ['nullable', 'required_with:password', 'current_password'],
+            'password' => ['nullable', 'string', 'min:6', 'confirmed'],
+        ], [
+            'login.required' => 'Введите логин.',
+            'login.min' => 'Логин должен содержать минимум 3 символа.',
+            'login.max' => 'Логин не должен быть длиннее 50 символов.',
+            'login.regex' => 'Логин может содержать только латинские буквы, цифры, дефис и подчёркивание.',
+            'login.unique' => 'Такой логин уже занят.',
+
+            'email.required' => 'Введите email.',
+            'email.email' => 'Введите корректный email.',
+            'email.unique' => 'Этот email уже зарегистрирован.',
+
+            'avatar.image' => 'Файл должен быть изображением.',
+            'avatar.mimes' => 'Поддерживаются форматы JPG, PNG и WebP.',
+            'avatar.max' => 'Размер аватара не должен превышать 2 МБ.',
+
+            'current_password.required_with' => 'Введите текущий пароль.',
+            'current_password.current_password' => 'Текущий пароль указан неверно.',
+
+            'password.min' => 'Новый пароль должен содержать минимум 6 символов.',
+            'password.confirmed' => 'Пароли не совпадают.',
+        ]);
+
+        $user->login = $data['login'];
+        $user->last_name = $data['last_name'] ?? null;
+        $user->first_name = $data['first_name'] ?? null;
+        $user->surname = $data['surname'] ?? null;
+        $user->email = $data['email'];
+        $user->phone = $data['phone'] ?? null;
+
+        if (! empty($data['password'])) {
+            // У User уже стоит каст 'password_hash' => 'hashed',
+            // поэтому пароль захешируется автоматически.
+            $user->password_hash = $data['password'];
+        }
+
+        $oldAvatar = $user->avatar;
+
+        $user->login = $data['login'];
+        $user->last_name = $data['last_name'] ?? null;
+        $user->first_name = $data['first_name'] ?? null;
+        $user->surname = $data['surname'] ?? null;
+        $user->email = $data['email'];
+        $user->phone = $data['phone'] ?? null;
+
+        if (! empty($data['password'])) {
+            $user->password_hash = $data['password'];
+        }
+
+        if ($request->hasFile('avatar')) {
+            $user->avatar = $this->storeAvatar($request->file('avatar'));
+        } elseif ($request->boolean('remove_avatar')) {
+            $user->avatar = null;
+        }
+
+        $user->save();
+
+        // Старый файл удаляем только после успешного сохранения
+        if ($oldAvatar && $oldAvatar !== $user->avatar) {
+            $this->deleteAvatarFile($oldAvatar);
+        }
+
+        $user->save();
+
+        return redirect()
+            ->route('profile')
+            ->with('status', 'Данные профиля обновлены.');
+    }
+
+    private function storeAvatar(UploadedFile $file): string
+    {
+        $directory = public_path('uploads/avatars');
+
+        if (! is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
+
+        $extension = strtolower($file->extension() ?: 'jpg');
+        $filename = (string) Str::uuid() . '.' . $extension;
+
+        $file->move($directory, $filename);
+
+        return 'uploads/avatars/' . $filename;
+    }
+
+    private function deleteAvatarFile(?string $path): void
+    {
+        if (! $path || ! str_starts_with($path, 'uploads/avatars/')) {
+            return;
+        }
+
+        $fullPath = public_path($path);
+
+        if (is_file($fullPath)) {
+            unlink($fullPath);
+        }
     }
 }

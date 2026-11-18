@@ -25,6 +25,10 @@ Route::get('/profile', [AuthController::class, 'profile'])
     ->middleware('auth')
     ->name('profile');
 
+Route::put('/profile', [AuthController::class, 'updateProfile'])
+    ->middleware('auth')
+    ->name('profile.update');
+
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
     ->name('admin.')
