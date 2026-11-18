@@ -36,7 +36,9 @@
     <section class="category-page">
         <div class="category-page__container container">
             <aside class="category-page__filters filters">
-                <form method="GET" action="{{ route('catalog.show', $category->slug) }}">
+                <form id="catalog-filters"
+                      method="GET"
+                      action="{{ route('catalog.show', $category->slug) }}">
 
                     @if ($errors->any())
                         <div class="filters__error">
@@ -148,6 +150,40 @@
                 <button class="filters__toggle" id="filtersToggle" type="button">
                     <span>Выбрать фильтры</span>
                 </button>
+                <div class="catalog-sort">
+                    <label class="catalog-sort__label" for="sort">Сортировка:</label>
+
+                    <select id="sort"
+                            name="sort"
+                            form="catalog-filters"
+                            class="catalog-sort__select"
+                            onchange="document.getElementById('catalog-filters').submit()">
+                        <option value="default" @selected(request('sort', 'default') === 'default')>
+                            По популярности
+                        </option>
+                        <option value="price_asc" @selected(request('sort') === 'price_asc')>
+                            Сначала дешевле
+                        </option>
+                        <option value="price_desc" @selected(request('sort') === 'price_desc')>
+                            Сначала дороже
+                        </option>
+                        <option value="rating_desc" @selected(request('sort') === 'rating_desc')>
+                            По рейтингу
+                        </option>
+                        <option value="new" @selected(request('sort') === 'new')>
+                            Сначала новые
+                        </option>
+                        <option value="name_asc" @selected(request('sort') === 'name_asc')>
+                            По названию
+                        </option>
+                    </select>
+
+                    <noscript>
+                        <button type="submit" form="catalog-filters" class="catalog-sort__btn">
+                            Применить
+                        </button>
+                    </noscript>
+                </div>
                 <ul class="products__grid">
                     @forelse ($products as $product)
                         <li class="products__item product-card">

@@ -34,6 +34,7 @@ class CatalogController extends Controller
             'manufacturer.*' => ['string', 'max:100'],
             'rating_min' => ['nullable', 'numeric', 'between:0,5'],
             'is_hit' => ['nullable', 'boolean'],
+            'sort' => ['nullable', 'in:default,price_asc,price_desc,rating_desc,new,name_asc'],
         ]);
 
         $productsQuery = $category->products()
@@ -76,10 +77,40 @@ class CatalogController extends Controller
             $productsQuery->where('is_hit', true);
         }
 
-        $products = $productsQuery
-            ->orderByDesc('is_hit')
-            ->orderByDesc('rating_cache')
-            ->get();
+        $sort = $data['sort'] ?? 'default';
+
+        switch ($sort) {
+            case 'price_asc':
+                $productsQuery->orderBy('price');
+                break;
+
+            case 'price_desc':
+                $productsQuery->orderByDesc('price');
+                break;
+
+            case 'rating_desc':
+                $productsQuery->orderByDesc('rating_cache');
+                break;
+
+            case 'new':
+                $productsQuery->orderByDesc('created_at');
+                break;
+
+            case 'name_asc':
+                $productsQuery->orderBy('name');
+                break;
+
+            case 'default':
+            default:
+                $productsQuery->orderByDesc('is_hit')
+                    ->orderByDesc('rating_cache');
+                break;
+        }
+
+        // Стабильная сортировка при одинаковых значениях
+        $productsQuery->orderBy('product_id');
+
+        $products = $productsQuery->get();
 
         $manufacturers = Product::query()
             ->where('category_id', $category->category_id)
