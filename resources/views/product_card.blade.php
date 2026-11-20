@@ -114,9 +114,24 @@
                     </div>
                 </div>
 
-                <button class="info-block__add-to-cart add-to-cart-btn">
-                    Добавить в корзину
-                </button>
+                <form method="POST"
+                      action="{{ route('cart.add', $product->slug) }}"
+                      class="add-to-cart-form">
+                    @csrf
+
+                    <input type="hidden" name="quantity" value="1">
+
+                    <button type="submit" class="info-block__add-to-cart add-to-cart-btn">
+                        Добавить в корзину
+                    </button>
+                </form>
+
+                @if (session('cart_success'))
+                    <div class="cart-success">
+                        {{ session('cart_success') }}
+                        <a href="{{ route('cart.index') }}">Перейти в корзину</a>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

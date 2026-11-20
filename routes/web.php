@@ -6,6 +6,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -58,9 +59,12 @@ Route::get('/product_card', function () {
 
     return redirect('/product/' . $product->slug);
 });
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart', [CartController::class, 'index'])
+    ->name('cart.index');
+
+Route::post('/cart/add/{slug}', [CartController::class, 'add'])
+    ->middleware('auth')
+    ->name('cart.add');
 
 Route::get('/favorites', function () {
     return view('izbrannoe');
