@@ -153,16 +153,98 @@
         <button class="specifications__expand-btn">Развернуть все</button>
     </div>
 
-    <div class="reviews__container container">
-        <div class="reviews__header">
-            <h2 class="reviews__title">Отзывы {{ $product->reviews_count }}</h2>
-            <button class="review__add-btn">Добавить отзыв</button>
-        </div>
+    <div class="reviews__container container" id="reviews">
+            <div class="reviews__header">
+                <h2 class="reviews__title">Отзывы {{ $product->reviews_count }}</h2>
+
+                @auth
+                    @unless ($userReview)
+                        <a href="#review-form" class="review__add-btn">
+                            Добавить отзыв
+                        </a>
+                    @endunless
+                @else
+                    <a href="{{ route('login') }}" class="review__add-btn">
+                        Войти, чтобы оставить отзыв
+                    </a>
+                @endauth
+            </div>
+
+            @if (session('success'))
+                <div class="review-form__success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="review-form__errors">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @auth
+                @if ($userReview)
+                    <div class="review-form__message">
+                        @if ($userReview->status === 'pending')
+                            Ваш отзыв отправлен на проверку.
+                        @else
+                            Вы уже оставили отзыв на этот товар.
+                        @endif
+                    </div>
+                @else
+                    <form id="review-form"
+                          method="POST"
+                          action="{{ route('reviews.store', $product->slug) }}"
+                          class="review-form">
+                        @csrf
+
+                        <label class="review-form__field">
+                            <span class="review-form__label">Оценка</span>
+                            <select name="rating"
+                                    class="review-form__select"
+                                    required>
+                                <option value="">Выберите оценку</option>
+
+                                @for ($i = 5; $i >= 1; $i--)
+                                    <option value="{{ $i }}"
+                                        @selected((string) old('rating') === (string) $i)>
+                                        {{ $i }}
+                                    </option>
+                                @endfor
+                            </select>
+                        </label>
+
+                        <label class="review-form__field">
+                            <span class="review-form__label">Текст отзыва</span>
+                            <textarea name="body"
+                                      class="review-form__textarea"
+                                      rows="5"
+                                      maxlength="2000"
+                                      placeholder="Расскажите о товаре..."
+                                      required>{{ old('body') }}</textarea>
+                        </label>
+
+                        <button type="submit" class="review-form__submit">
+                            Отправить отзыв
+                        </button>
+                    </form>
+                @endif
+            @else
+                <div class="review-form__message">
+                    Чтобы оставить отзыв, <a href="{{ route('login') }}">войдите в аккаунт</a>.
+                </div>
+            @endauth
 
         @forelse ($product->reviews as $review)
             <div class="review__popular">
                 <div class="reviewer__info">
-                    <img src="{{ asset('img/avatar.jpg') }}" alt="Аватар" class="reviewer__avatar">
+                    <img src="{{ $review->user?->avatar ? asset($review->user->avatar) : asset('img/avatar.jpg') }}"
+                         alt="Аватар"
+                         class="reviewer__avatar">
                     <span class="reviewer__name">
                         {{ trim(($review->user?->first_name ?? '') . ' ' . ($review->user?->last_name ?? '')) ?: 'Пользователь' }}
                     </span>

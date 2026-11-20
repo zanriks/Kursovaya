@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Review;
 
 class ProductController extends Controller
 {
@@ -25,6 +26,13 @@ class ProductController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
-        return view('product_card', compact('product'));
+        $userReview = auth()->check()
+            ? Review::query()
+                ->where('product_id', $product->product_id)
+                ->where('user_id', auth()->id())
+                ->first()
+            : null;
+
+        return view('product_card', compact('product', 'userReview'));
     }
 }
