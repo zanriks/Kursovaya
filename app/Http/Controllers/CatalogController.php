@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartItem;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -120,10 +121,15 @@ class CatalogController extends Controller
             ->orderBy('manufacturer')
             ->pluck('manufacturer');
 
+        $cartItems = CartItem::forUserKeyedByProduct(
+            $request->user()?->user_id
+        );
+
         return view('catalog_instrument', compact(
             'category',
             'products',
-            'manufacturers'
+            'manufacturers',
+            'cartItems'
         ));
     }
 
@@ -154,6 +160,10 @@ class CatalogController extends Controller
             ->paginate(20)
             ->withQueryString();
 
-        return view('search', compact('products', 'query'));
+        $cartItems = CartItem::forUserKeyedByProduct(
+            $request->user()?->user_id
+        );
+
+        return view('search', compact('products', 'query', 'cartItems'));
     }
 }

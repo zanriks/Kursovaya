@@ -3,9 +3,9 @@ body {
 }
 
 .product__page {
+    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .product__page-container {
@@ -37,9 +37,9 @@ body {
 }
 
 .gallery__thumb-image {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
     cursor: pointer;
     border-radius: 8px;
 }
@@ -552,7 +552,7 @@ a.review__add-btn {
     text-decoration: underline;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .product__page-gallery {
         flex-direction: column;
         gap: 20px;

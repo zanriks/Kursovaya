@@ -31,6 +31,12 @@
 
 <section class="cart">
     <div class="cart__container container">
+        @if (session('cart_success'))
+            <div class="cart__message">
+                {{ session('cart_success') }}
+            </div>
+        @endif
+
         @if ($items->isEmpty())
             <div class="cart__empty empty-state">
                 <h3 class="empty-state__title">Пока пусто</h3>
@@ -68,9 +74,32 @@
                             </p>
                         </div>
 
-                        <div class="cart-item__quantity">
-                            {{ $item->quantity }} шт.
-                        </div>
+                        <form method="POST"
+                              action="{{ route('cart.update', $item) }}"
+                              class="cart-item__quantity">
+                            @csrf
+
+                            <button type="submit"
+                                    name="action"
+                                    value="decrement"
+                                    class="cart-item__qty-btn"
+                                    aria-label="Уменьшить количество">
+                                −
+                            </button>
+
+                            <span class="cart-item__qty-value">
+                                {{ $item->quantity }}
+                            </span>
+
+                            <button type="submit"
+                                    name="action"
+                                    value="increment"
+                                    class="cart-item__qty-btn"
+                                    aria-label="Увеличить количество"
+                                    @disabled($item->quantity >= 99)>
+                                +
+                            </button>
+                        </form>
 
                         <div class="cart-item__price">
                             {{ number_format((float) $item->price_at_add, 0, ',', ' ') }} ₽
@@ -79,6 +108,18 @@
                         <div class="cart-item__sum">
                             {{ number_format((float) $item->price_at_add * $item->quantity, 0, ',', ' ') }} ₽
                         </div>
+
+                        <form method="POST"
+                              action="{{ route('cart.update', $item) }}"
+                              class="cart-item__remove">
+                            @csrf
+                            <input type="hidden" name="action" value="remove">
+                            <button type="submit"
+                                    class="cart-item__remove-btn"
+                                    aria-label="Удалить товар из корзины">
+                                Удалить
+                            </button>
+                        </form>
                     </article>
                 @endforeach
             </div>

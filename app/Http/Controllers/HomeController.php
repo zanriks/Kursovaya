@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartItem;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::query()
             ->where('is_active', true)
@@ -25,6 +27,10 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
-        return view('welcome', compact('categories', 'hits'));
+        $cartItems = CartItem::forUserKeyedByProduct(
+            $request->user()?->user_id
+        );
+
+        return view('welcome', compact('categories', 'hits', 'cartItems'));
     }
 }

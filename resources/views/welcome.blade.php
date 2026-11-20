@@ -150,49 +150,57 @@
         <ul class="hits__list">
             @forelse ($hits as $product)
                 <li class="hits__item product">
-                    <a href="/product/{{ $product->slug }}" style="text-decoration: none;">
+                    <a class="product__image-link" href="{{ route('product.show', $product->slug) }}">
                         <img class="product__image"
                              src="{{ asset($product->primaryImage?->image_url ?? 'img/hits-photo/perforator.png') }}"
                              alt="{{ $product->name }}">
-
-                        @if ($product->old_price && $product->old_price > $product->price)
-                            <div class="product__badge product__badge--discount">
-                                -{{ round((1 - $product->price / $product->old_price) * 100) }}%
-                            </div>
-                        @endif
-
-                        <div class="product__price">
-                            <span class="product__price-current">
-                                {{ number_format($product->price, 0, ',', ' ') }} ₽
-                            </span>
-                            @if ($product->old_price)
-                                <span class="product__price-old">
-                                    {{ number_format($product->old_price, 0, ',', ' ') }} ₽
-                                </span>
-                            @endif
-                        </div>
-
-                        <h3 class="product__name">{{ $product->name }}</h3>
-
-                        <div class="product__rating">
-                            <span class="product__stars">
-                                <img src="{{ asset('img/icons/star.svg') }}" alt="">
-                                {{ number_format($product->rating_cache, 2) }}
-                            </span>
-                            @if ($product->reviews_count > 0)
-                                <span class="product__reviews">
-                                    {{ $product->reviews_count }} отзывов
-                                </span>
-                            @endif
-                        </div>
-
-                        <div class="product__actions">
-                            <span class="product__action product__action--add">В корзину</span>
-                            <span class="product__action product__action--favorite">
-                                <img src="{{ asset('img/icons/heart.svg') }}" alt="">
-                            </span>
-                        </div>
                     </a>
+
+                    @if ($product->old_price && $product->old_price > $product->price)
+                        <div class="product__badge product__badge--discount">
+                            -{{ round((1 - $product->price / $product->old_price) * 100) }}%
+                        </div>
+                    @endif
+
+                    <div class="product__price">
+                        <span class="product__price-current">
+                            {{ number_format($product->price, 0, ',', ' ') }} ₽
+                        </span>
+                        @if ($product->old_price)
+                            <span class="product__price-old">
+                                {{ number_format($product->old_price, 0, ',', ' ') }} ₽
+                            </span>
+                        @endif
+                    </div>
+
+                    <a class="product__name-link" href="{{ route('product.show', $product->slug) }}">
+                        <h3 class="product__name">{{ $product->name }}</h3>
+                    </a>
+
+                    <div class="product__rating">
+                        <span class="product__stars">
+                            <img src="{{ asset('img/icons/star.svg') }}" alt="">
+                            {{ number_format($product->rating_cache, 2) }}
+                        </span>
+                        @if ($product->reviews_count > 0)
+                            <span class="product__reviews">
+                                {{ $product->reviews_count }} отзывов
+                            </span>
+                        @endif
+                    </div>
+
+                    <div class="product__actions">
+                        @include('templates.product-cart-controls', [
+                            'product' => $product,
+                            'cartItems' => $cartItems,
+                            'formClass' => 'product__cart-form',
+                            'buttonClass' => 'product__action product__action--add',
+                        ])
+
+                        <span class="product__action product__action--favorite">
+                            <img src="{{ asset('img/icons/heart.svg') }}" alt="">
+                        </span>
+                    </div>
                 </li>
             @empty
                 <li class="hits__item product">Хиты пока не добавлены</li>

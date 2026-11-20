@@ -92,9 +92,13 @@
                             </div>
 
                             <div class="product-card__actions">
-                                <button class="product-card__action product-card__action--add">
-                                    В корзину
-                                </button>
+                                @include('templates.product-cart-controls', [
+                                    'product' => $product,
+                                    'cartItems' => $cartItems,
+                                    'formClass' => 'product-card__cart-form',
+                                    'buttonClass' => 'product-card__action product-card__action--add',
+                                ])
+
                                 <button class="product-card__action product-card__action--favorite">
                                     <img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное">
                                 </button>

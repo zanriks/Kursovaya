@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\CartItem;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -60,6 +61,51 @@ class CartController extends Controller
             'cart_success',
             'Товар добавлен в корзину.'
         );
+    }
+
+    public function update(Request $request, CartItem $item)
+    {
+        $cart = $this->getCart($request);
+
+        abort_unless((int) $item->cart_id === (int) $cart->cart_id, 404);
+
+        $data = $request->validate([
+            'action' => ['required', 'in:increment,decrement,remove'],
+        ], [
+            'action.required' => 'Не выбрано действие.',
+            'action.in' => 'Некорректное действие.',
+        ]);
+
+        switch ($data['action']) {
+            case 'increment':
+                if ($item->quantity >= 99) {
+                    return back()->with(
+                        'cart_success',
+                        'Максимум 99 единиц одного товара.'
+                    );
+                }
+
+                $item->increment('quantity');
+                $message = 'Количество увеличено.';
+                break;
+
+            case 'decrement':
+                if ($item->quantity <= 1) {
+                    $item->delete();
+                    $message = 'Товар удалён из корзины.';
+                } else {
+                    $item->decrement('quantity');
+                    $message = 'Количество уменьшено.';
+                }
+                break;
+
+            case 'remove':
+                $item->delete();
+                $message = 'Товар удалён из корзины.';
+                break;
+        }
+
+        return back()->with('cart_success', $message);
     }
 
     private function getCart(Request $request): Cart

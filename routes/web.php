@@ -59,12 +59,17 @@ Route::get('/product_card', function () {
 
     return redirect('/product/' . $product->slug);
 });
+
 Route::get('/cart', [CartController::class, 'index'])
     ->name('cart.index');
 
 Route::post('/cart/add/{slug}', [CartController::class, 'add'])
     ->middleware('auth')
     ->name('cart.add');
+
+Route::post('/cart/items/{item}', [CartController::class, 'update'])
+    ->middleware('auth')
+    ->name('cart.update');
 
 Route::get('/favorites', function () {
     return view('izbrannoe');

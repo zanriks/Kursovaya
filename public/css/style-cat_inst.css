@@ -255,6 +255,12 @@
     gap: 8px;
 }
 
+.product-card__cart-form {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
 .product-card__action {
     padding: 5px 16px;
     border: none;

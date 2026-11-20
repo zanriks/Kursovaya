@@ -34,4 +34,19 @@ class CartItem extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'product_id');
     }
+
+    public static function forUserKeyedByProduct(?int $userId)
+    {
+        if (!$userId) {
+            return collect();
+        }
+
+        return static::query()
+            ->whereHas('cart', function ($query) use ($userId) {
+                $query->where('user_id', $userId)
+                    ->where('status', 'active');
+            })
+            ->get()
+            ->keyBy('product_id');
+    }
 }
