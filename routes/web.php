@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
@@ -39,6 +40,14 @@ Route::middleware(['auth', 'admin'])
 
         Route::resource('products', AdminProductController::class)
             ->except(['show']);
+    });
+
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function() {
+        Route::resource('categories', AdminCategoryController::class)
+        ->except(['show']);
     });
 
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');

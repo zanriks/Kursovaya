@@ -33,6 +33,10 @@
                    href="{{ route('admin.products.index') }}">
                     Товары
                 </a>
+                <a class="admin__nav-link {{ request()->routeIs('admin.categories.*') ? 'is-active' : '' }}"
+                   href="{{ route('admin.categories.index') }}">
+                    Добавить категорию
+                </a>
                 <a class="admin__nav-link" href="/catalog" target="_blank" rel="noopener">
                     Открыть каталог
                 </a>
