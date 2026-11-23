@@ -95,6 +95,20 @@
 
                     <button type="submit" class="auth__submit">Войти</button>
 
+                    <div class="auth__social">
+                        <a href="{{ route('auth.provider.redirect', 'yandex') }}" class="auth__social-btn">
+                            Войти через Яндекс
+                        </a>
+
+                        <a href="{{ route('auth.provider.redirect', 'vkontakte') }}" class="auth__social-btn">
+                            Войти через ВКонтакте
+                        </a>
+
+                        <a href="{{ route('auth.provider.redirect', 'google') }}" class="auth__social-btn">
+                            Войти через Google
+                        </a>
+                    </div>
+
                     <p class="auth__switch">
                         Нет аккаунта?
                         <button type="button" data-tab="register">Зарегистрироваться</button>

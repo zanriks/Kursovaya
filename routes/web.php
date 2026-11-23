@@ -12,6 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\EstimateController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -31,6 +32,12 @@ Route::middleware('guest')->group(function () {
         ->name('password.reset');
     Route::post('/reset-password', [PasswordResetController::class, 'reset'])
         ->name('password.update');
+
+    Route::get('/auth/{provider}/redirect', [SocialAuthController::class, 'redirect'])
+        ->name('auth.provider.redirect');
+
+    Route::get('/auth/{provider}/callback', [SocialAuthController::class, 'callback'])
+        ->name('auth.provider.callback');
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])
