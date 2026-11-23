@@ -181,6 +181,10 @@
                 </form>
             </div>
             <div class="profile__actions actions">
+                <a href="{{ route('orders.index') }}" class="actions__btn">
+                    Мои заказы
+                </a>
+
                 @if (auth()->user()->isStaff())
                     <a href="{{ route('admin.products.index') }}" class="actions__btn actions__btn--admin">
                         {{ auth()->user()->isAdmin() ? 'Админ-панель' : 'Кабинет менеджера' }}

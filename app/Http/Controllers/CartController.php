@@ -32,6 +32,7 @@ class CartController extends Controller
 
         $data = $request->validate([
             'quantity' => ['nullable', 'integer', 'min:1', 'max:99'],
+            'redirect' => ['nullable', 'in:checkout'],
         ], [
             'quantity.integer' => 'Количество должно быть числом.',
             'quantity.min' => 'Количество должно быть не меньше 1.',
@@ -55,6 +56,11 @@ class CartController extends Controller
                 'quantity' => $quantity,
                 'price_at_add' => $product->price,
             ]);
+        }
+
+        // Кнопка «Купить сейчас»: товар уже в корзине — сразу ведём на оформление.
+        if ($request->input('redirect') === 'checkout') {
+            return redirect()->route('checkout.index');
         }
 
         return back()->with(

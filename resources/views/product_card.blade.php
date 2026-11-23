@@ -126,6 +126,25 @@
                     </button>
                 </form>
 
+                @guest
+                    <a href="{{ route('login') }}" class="info-block__add-to-cart add-to-cart-btn buy-now-btn">
+                        Купить сейчас
+                    </a>
+                @else
+                    <form method="POST"
+                          action="{{ route('cart.add', $product->slug) }}"
+                          class="add-to-cart-form">
+                        @csrf
+
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="redirect" value="checkout">
+
+                        <button type="submit" class="info-block__add-to-cart add-to-cart-btn buy-now-btn">
+                            Купить сейчас
+                        </button>
+                    </form>
+                @endguest
+
                 @if (session('cart_success'))
                     <div class="cart-success">
                         {{ session('cart_success') }}

@@ -10,6 +10,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EstimateController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -103,6 +105,23 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/estimates/{estimate}', [EstimateController::class, 'show'])
         ->name('estimates.show');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/checkout', [CheckoutController::class, 'index'])
+        ->name('checkout.index');
+
+    Route::post('/checkout', [CheckoutController::class, 'store'])
+        ->name('checkout.store');
+
+    Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])
+        ->name('checkout.success');
+
+    Route::get('/orders', [OrderController::class, 'index'])
+        ->name('orders.index');
+
+    Route::get('/orders/{order}', [OrderController::class, 'show'])
+        ->name('orders.show');
 });
 
 Route::get('/favorites', function () {

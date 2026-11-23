@@ -157,6 +157,16 @@ body {
     transition: 0.2s;
 }
 
+.info-block__add-to-cart.buy-now-btn {
+    margin-top: 10px;
+    background-color: #2e8b3d;
+    text-decoration: none;
+}
+
+.info-block__add-to-cart.buy-now-btn:hover {
+    background-color: #267532;
+}
+
 .delivery__option {
     margin-bottom: 10px;
 }

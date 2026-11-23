@@ -209,6 +209,30 @@
     font-weight: 700;
 }
 
+.cart__checkout {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.cart__checkout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 28px;
+    border-radius: 24px;
+    background: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cart__checkout-btn:hover {
+    background: #45a049;
+}
+
 @media (max-width: 700px) {
     .cart-item {
         grid-template-columns: 70px 1fr;

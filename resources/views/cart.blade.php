@@ -37,6 +37,12 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="cart__message">
+                {{ session('error') }}
+            </div>
+        @endif
+
         @if ($items->isEmpty())
             <div class="cart__empty empty-state">
                 <h3 class="empty-state__title">Пока пусто</h3>
@@ -131,7 +137,22 @@
                 </span>
             </div>
         @endif
+
+        @if (! $items->isEmpty())
+            <div class="cart__checkout">
+                @auth
+                    <a href="{{ route('checkout.index') }}" class="cart__checkout-btn">
+                        Оформить заказ
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="cart__checkout-btn">
+                        Войдите, чтобы оформить заказ
+                    </a>
+                @endauth
+            </div>
+        @endif
     </div>
+
 </section>
 
 @include('templates.footer')
