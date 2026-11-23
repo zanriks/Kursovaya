@@ -42,6 +42,14 @@
                        href="{{ route('admin.categories.index') }}">
                         Категории
                     </a>
+                    <a class="admin__nav-link {{ request()->routeIs('admin.users.*') ? 'is-active' : '' }}"
+                       href="{{ route('admin.users.index') }}">
+                        Пользователи
+                    </a>
+                    <a class="admin__nav-link {{ request()->routeIs('admin.roles.*') ? 'is-active' : '' }}"
+                       href="{{ route('admin.roles.index') }}">
+                        Роли
+                    </a>
                 @endif
                 <a class="admin__nav-link" href="/catalog" target="_blank" rel="noopener">
                     Открыть каталог

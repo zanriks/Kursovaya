@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
@@ -67,6 +69,12 @@ Route::middleware(['auth', 'admin'])
     ->name('admin.')
     ->group(function () {
         Route::resource('categories', AdminCategoryController::class)
+            ->except(['show']);
+
+        Route::resource('users', AdminUserController::class)
+            ->except(['show']);
+
+        Route::resource('roles', AdminRoleController::class)
             ->except(['show']);
     });
 
