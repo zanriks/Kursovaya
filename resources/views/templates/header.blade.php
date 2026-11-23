@@ -12,9 +12,11 @@
                     <li class="nav__item"><a class="nav__link" href="/contacts">Контакты</a></li>
                     <li class="nav__item"><a class="nav__link" href="/services">Услуги</a></li>
                     @auth
-                        @if (auth()->user()->isAdmin())
+                        @if (auth()->user()->isStaff())
                             <li class="nav__item">
-                                <a class="nav__link" href="{{ route('admin.products.index') }}">Админка</a>
+                                <a class="nav__link" href="{{ route('admin.products.index') }}">
+                                    {{ auth()->user()->isAdmin() ? 'Админка' : 'Кабинет' }}
+                                </a>
                             </li>
                         @endif
                     @endauth
@@ -47,9 +49,11 @@
                         <li><a class="mobile-menu__link" href="/contacts">Контакты</a></li>
                         <li><a class="mobile-menu__link" href="/services">Услуги</a></li>
                         @auth
-                            @if (auth()->user()->isAdmin())
+                            @if (auth()->user()->isStaff())
                                 <li>
-                                    <a class="mobile-menu__link" href="{{ route('admin.products.index') }}">Админка</a>
+                                    <a class="mobile-menu__link" href="{{ route('admin.products.index') }}">
+                                        {{ auth()->user()->isAdmin() ? 'Админка' : 'Кабинет менеджера' }}
+                                    </a>
                                 </li>
                             @endif
                         @endauth

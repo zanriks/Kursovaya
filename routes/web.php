@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CartController;
@@ -18,6 +19,15 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/registration', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/registration', [AuthController::class, 'register'])->name('register.store');
+
+    Route::get('/forgot-password', [PasswordResetController::class, 'showLinkRequestForm'])
+        ->name('password.request');
+    Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLinkEmail'])
+        ->name('password.email');
+    Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetForm'])
+        ->name('password.reset');
+    Route::post('/reset-password', [PasswordResetController::class, 'reset'])
+        ->name('password.update');
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])
@@ -32,7 +42,7 @@ Route::put('/profile', [AuthController::class, 'updateProfile'])
     ->middleware('auth')
     ->name('profile.update');
 
-Route::middleware(['auth', 'admin'])
+Route::middleware(['auth', 'staff'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
@@ -45,9 +55,9 @@ Route::middleware(['auth', 'admin'])
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
     ->name('admin.')
-    ->group(function() {
+    ->group(function () {
         Route::resource('categories', AdminCategoryController::class)
-        ->except(['show']);
+            ->except(['show']);
     });
 
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');

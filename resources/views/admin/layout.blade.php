@@ -1,9 +1,13 @@
+@php
+    $panelTitle = auth()->user()->isAdmin() ? 'Админ-панель' : 'Кабинет менеджера';
+@endphp
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Админ-панель') — АСТМАСТЕР</title>
+    <title>@yield('title', $panelTitle) — АСТМАСТЕР</title>
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
@@ -17,10 +21,10 @@
         <ol class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
             <li class="breadcrumbs__item"><span class="breadcrumbs__separator">></span></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ route('admin.products.index') }}">Админ-панель</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ route('admin.products.index') }}">{{ $panelTitle }}</a></li>
             @yield('breadcrumb')
         </ol>
-        <h1 class="page__title">Админ-панель</h1>
+        <h1 class="page__title">{{ $panelTitle }}</h1>
     </nav>
 </div>
 
@@ -33,10 +37,12 @@
                    href="{{ route('admin.products.index') }}">
                     Товары
                 </a>
-                <a class="admin__nav-link {{ request()->routeIs('admin.categories.*') ? 'is-active' : '' }}"
-                   href="{{ route('admin.categories.index') }}">
-                    Добавить категорию
-                </a>
+                @if (auth()->user()->isAdmin())
+                    <a class="admin__nav-link {{ request()->routeIs('admin.categories.*') ? 'is-active' : '' }}"
+                       href="{{ route('admin.categories.index') }}">
+                        Категории
+                    </a>
+                @endif
                 <a class="admin__nav-link" href="/catalog" target="_blank" rel="noopener">
                     Открыть каталог
                 </a>

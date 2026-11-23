@@ -16,9 +16,21 @@ class AdminProductController extends Controller
 {
     public function index(Request $request)
     {
-        $search = trim((string) $request->input('search'));
+        $filters = $request->validate([
+            'search' => ['nullable', 'string', 'max:255'],
+            'category_id' => ['nullable', 'integer', 'exists:categories,category_id'],
+            'manufacturer' => ['nullable', 'string', 'max:100'],
+            'is_active' => ['nullable', 'in:0,1'],
+            'is_hit' => ['nullable', 'in:0,1'],
+            'price_min' => ['nullable', 'numeric', 'min:0'],
+            'price_max' => ['nullable', 'numeric', 'min:0'],
+            'sort' => ['nullable', 'in:default,name_asc,price_asc,price_desc,rating_desc,new'],
+        ]);
 
-        $products = Product::query()
+        $search = trim((string) ($filters['search'] ?? ''));
+        $sort = ($filters['sort'] ?? '') ?: 'default';
+
+        $productsQuery = Product::query()
             ->with([
                 'category',
                 'images' => fn ($query) => $query->orderBy('sort_order'),
@@ -30,11 +42,80 @@ class AdminProductController extends Controller
                         ->orWhere('slug', 'like', "%{$search}%");
                 });
             })
-            ->orderByDesc('product_id')
+            ->when(! empty($filters['category_id']), function ($query) use ($filters) {
+                $query->where('category_id', $filters['category_id']);
+            })
+            ->when(! empty($filters['manufacturer']), function ($query) use ($filters) {
+                $query->where('manufacturer', 'like', '%'.$filters['manufacturer'].'%');
+            });
+
+        if ($request->filled('is_active')) {
+            $productsQuery->where('is_active', (bool) $filters['is_active']);
+        }
+
+        if ($request->filled('is_hit')) {
+            $productsQuery->where('is_hit', (bool) $filters['is_hit']);
+        }
+
+        if ($request->filled('price_min')) {
+            $productsQuery->where('price', '>=', $filters['price_min']);
+        }
+
+        if ($request->filled('price_max')) {
+            $productsQuery->where('price', '<=', $filters['price_max']);
+        }
+
+        switch ($sort) {
+            case 'name_asc':
+                $productsQuery->orderBy('name');
+                break;
+
+            case 'price_asc':
+                $productsQuery->orderBy('price');
+                break;
+
+            case 'price_desc':
+                $productsQuery->orderByDesc('price');
+                break;
+
+            case 'rating_desc':
+                $productsQuery->orderByDesc('rating_cache');
+                break;
+
+            case 'new':
+                $productsQuery->orderByDesc('created_at');
+                break;
+
+            case 'default':
+            default:
+                $productsQuery->orderByDesc('product_id');
+                break;
+        }
+
+        if ($sort !== 'default') {
+            $productsQuery->orderBy('product_id');
+        }
+
+        $products = $productsQuery
             ->paginate(10)
             ->withQueryString();
 
-        return view('admin.list_products', compact('products', 'search'));
+        $categories = Category::orderBy('name')->get();
+
+        $manufacturers = Product::query()
+            ->whereNotNull('manufacturer')
+            ->where('manufacturer', '!=', '')
+            ->distinct()
+            ->orderBy('manufacturer')
+            ->pluck('manufacturer');
+
+        return view('admin.list_products', compact(
+            'products',
+            'search',
+            'categories',
+            'manufacturers',
+            'filters'
+        ));
     }
 
     public function create()

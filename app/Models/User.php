@@ -92,4 +92,14 @@ class User extends Authenticatable
     {
         return $this->role?->name === 'admin';
     }
+
+    public function isManager(): bool
+    {
+        return $this->role?->name === 'manager';
+    }
+
+    public function isStaff(): bool
+    {
+        return $this->isAdmin() || $this->isManager();
+    }
 }

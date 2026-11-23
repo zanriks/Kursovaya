@@ -9,18 +9,95 @@
 @endsection
 
 @section('content')
-    <form method="GET" action="{{ route('admin.products.index') }}" class="admin__search">
-        <input type="text"
-               name="search"
-               class="admin-form__input"
-               value="{{ $search }}"
-               placeholder="Поиск по названию, артикулу или slug">
-        <button type="submit" class="admin__btn">Найти</button>
+    @php
+        $hasFilters = collect([
+            'search',
+            'category_id',
+            'manufacturer',
+            'is_active',
+            'is_hit',
+            'price_min',
+            'price_max',
+            'sort',
+        ])->contains(fn ($key) => request()->filled($key));
+    @endphp
 
-        @if ($search !== '')
-            <a href="{{ route('admin.products.index') }}" class="admin__btn admin__btn--muted">Сбросить</a>
-        @endif
+    <form method="GET" action="{{ route('admin.products.index') }}" class="admin__filters">
+        <div class="admin__filters-row">
+            <input type="text"
+                   name="search"
+                   class="admin-form__input admin__filters-search"
+                   value="{{ $search }}"
+                   placeholder="Поиск по названию, артикулу или slug">
+
+            <select name="category_id" class="admin-form__input">
+                <option value="">Все категории</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->category_id }}"
+                        @selected((string) request('category_id') === (string) $category->category_id)>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+
+            <select name="manufacturer" class="admin-form__input">
+                <option value="">Все производители</option>
+                @foreach ($manufacturers as $manufacturer)
+                    <option value="{{ $manufacturer }}"
+                        @selected(request('manufacturer') === $manufacturer)>
+                        {{ $manufacturer }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="admin__filters-row">
+            <input type="number"
+                   name="price_min"
+                   class="admin-form__input"
+                   value="{{ request('price_min') }}"
+                   min="0"
+                   step="0.01"
+                   placeholder="Цена от">
+
+            <input type="number"
+                   name="price_max"
+                   class="admin-form__input"
+                   value="{{ request('price_max') }}"
+                   min="0"
+                   step="0.01"
+                   placeholder="Цена до">
+
+            <select name="is_active" class="admin-form__input">
+                <option value="">Все статусы</option>
+                <option value="1" @selected(request('is_active') === '1')>Активен</option>
+                <option value="0" @selected(request('is_active') === '0')>Скрыт</option>
+            </select>
+
+            <select name="is_hit" class="admin-form__input">
+                <option value="">Все товары</option>
+                <option value="1" @selected(request('is_hit') === '1')>Только хиты</option>
+                <option value="0" @selected(request('is_hit') === '0')>Не хиты</option>
+            </select>
+
+            <select name="sort" class="admin-form__input">
+                <option value="default" @selected(request('sort', 'default') === 'default')>Сначала новые</option>
+                <option value="name_asc" @selected(request('sort') === 'name_asc')>Название А–Я</option>
+                <option value="price_asc" @selected(request('sort') === 'price_asc')>Цена по возрастанию</option>
+                <option value="price_desc" @selected(request('sort') === 'price_desc')>Цена по убыванию</option>
+                <option value="rating_desc" @selected(request('sort') === 'rating_desc')>Рейтинг</option>
+                <option value="new" @selected(request('sort') === 'new')>Новинки</option>
+            </select>
+
+            <button type="submit" class="admin__btn">Применить</button>
+
+            @if ($hasFilters)
+                <a href="{{ route('admin.products.index') }}" class="admin__btn admin__btn--muted">Сбросить</a>
+            @endif
+        </div>
     </form>
+
+    <p class="admin__results">Найдено товаров: {{ $products->total() }}</p>
 
     <div class="admin__table-wrap">
         <table class="admin__table">
@@ -56,6 +133,9 @@
                     <td>
                         <strong class="admin__product-name">{{ $product->name }}</strong>
                         <span class="admin__muted">Артикул: {{ $product->sku }}</span>
+                        @if ($product->manufacturer)
+                            <span class="admin__muted">Производитель: {{ $product->manufacturer }}</span>
+                        @endif
                         <span class="admin__muted admin__slug">Slug: {{ $product->slug }}</span>
                     </td>
                     <td>{{ $product->category?->name ?? '—' }}</td>

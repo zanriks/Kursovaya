@@ -181,9 +181,9 @@
                 </form>
             </div>
             <div class="profile__actions actions">
-                @if (auth()->user()->isAdmin())
+                @if (auth()->user()->isStaff())
                     <a href="{{ route('admin.products.index') }}" class="actions__btn actions__btn--admin">
-                        Админ-панель
+                        {{ auth()->user()->isAdmin() ? 'Админ-панель' : 'Кабинет менеджера' }}
                     </a>
                 @endif
 

@@ -47,6 +47,12 @@
                 </button>
             </div>
 
+            @if (session('status'))
+                <div class="auth__status">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             @if ($errors->any())
                 <div class="auth__errors">
                     <ul>
@@ -82,6 +88,10 @@
                                {{ old('remember') ? 'checked' : '' }}>
                         Запомнить меня
                     </label>
+
+                    <p class="auth__forgot">
+                        <a href="{{ route('password.request') }}">Забыли пароль?</a>
+                    </p>
 
                     <button type="submit" class="auth__submit">Войти</button>
 
