@@ -29,6 +29,9 @@
             <ul class="services-grid__list">
                 <li class="services-grid__item service-card">
                 <h3 class="service-card__title">Смета онлайн</h3>
+                <a href="{{ route('estimate.index') }}" class="service-card__title">
+                    Смета онлайн
+                </a>
                 </li>
                 <li class="services-grid__item service-card">
                 <h3 class="service-card__title">Сборка мебели</h3>

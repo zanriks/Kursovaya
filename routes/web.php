@@ -9,6 +9,7 @@ use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\EstimateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -89,6 +90,20 @@ Route::post('/cart/add/{slug}', [CartController::class, 'add'])
 Route::post('/cart/items/{item}', [CartController::class, 'update'])
     ->middleware('auth')
     ->name('cart.update');
+
+Route::get('/estimate', [EstimateController::class, 'index'])
+    ->name('estimate.index');
+
+Route::post('/estimate/calculate', [EstimateController::class, 'calculate'])
+    ->name('estimate.calculate');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/estimates', [EstimateController::class, 'history'])
+        ->name('estimates.index');
+
+    Route::get('/estimates/{estimate}', [EstimateController::class, 'show'])
+        ->name('estimates.show');
+});
 
 Route::get('/favorites', function () {
     return view('izbrannoe');

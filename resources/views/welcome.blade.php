@@ -80,7 +80,9 @@
                     <div class="service__icon"><img src="{{ asset('img/services/calculator.svg') }}" alt="Смета онлайн">
                     </div>
                     <div class="service__content">
-                        <a href="#"><h3 class="service__name smeta">Смета онлайн</h3></a>
+                        <a href="{{ route('estimate.index') }}" class="service__name smeta">
+                            Смета онлайн
+                        </a>
                         <p class="service__desc">Доставка распространяется на розничных клиентов и клиентов
                             интернет-магазина</p>
                     </div>
