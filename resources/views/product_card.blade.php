@@ -97,9 +97,12 @@
                         </span>
                     </div>
 
-                    <button class="info-block__favorite favorite-btn">
-                        <img src="{{ asset('img/icons/heart.svg') }}" alt="Избранное">
-                    </button>
+                    @include('templates.favorite-button', [
+                        'product' => $product,
+                        'favoriteIds' => $favoriteIds,
+                        'buttonClass' => 'info-block__favorite favorite-btn',
+                        'icon' => 'img/icons/heart.svg',
+                    ])
                 </div>
 
                 <div class="info-block__delivery delivery">

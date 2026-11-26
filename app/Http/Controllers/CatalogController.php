@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CartItem;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
@@ -125,6 +126,8 @@ class CatalogController extends Controller
             $request->user()?->user_id
         );
 
+        $favoriteIds = Favorite::idsForUser($request->user()?->user_id);
+
         return view('catalog_instrument', compact(
             'category',
             'products',
@@ -164,6 +167,8 @@ class CatalogController extends Controller
             $request->user()?->user_id
         );
 
-        return view('search', compact('products', 'query', 'cartItems'));
+        $favoriteIds = Favorite::idsForUser($request->user()?->user_id);
+
+        return view('search', compact('products', 'query', 'cartItems', 'favoriteIds'));
     }
 }

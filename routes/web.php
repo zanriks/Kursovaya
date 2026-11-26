@@ -15,6 +15,7 @@ use App\Http\Controllers\EstimateController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SocialAuthController;
+use App\Http\Controllers\FavoritesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -139,8 +140,11 @@ Route::middleware('auth')->group(function () {
         ->name('orders.show');
 });
 
-Route::get('/favorites', function () {
-    return view('izbrannoe');
+Route::middleware('auth')->group(function () {
+    Route::get('/favorites', [FavoritesController::class, 'index'])
+        ->name('favorites.index');
+    Route::post('/favorites/{product}', [FavoritesController::class, 'toggle'])
+        ->name('favorites.toggle');
 });
 
 Route::get('/contacts', function () {

@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\Favorite;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function show(string $slug)
+    public function show(Request $request, string $slug)
     {
         $product = Product::query()
             ->with([
@@ -33,6 +35,8 @@ class ProductController extends Controller
                 ->first()
             : null;
 
-        return view('product_card', compact('product', 'userReview'));
+        $favoriteIds = Favorite::idsForUser($request->user()?->user_id);
+
+        return view('product_card', compact('product', 'userReview', 'favoriteIds'));
     }
 }

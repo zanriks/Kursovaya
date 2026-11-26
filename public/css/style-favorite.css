@@ -95,3 +95,44 @@
     border-color: #ffffff;
     color: white;
 }
+
+.favorite-form {
+    display: inline-flex;
+}
+
+.favorite-form button,
+.favorite-form a {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.is-favorite img {
+    filter: invert(27%) sepia(96%) saturate(1000%) hue-rotate(330deg);
+}
+
+.favorites__message {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #e8f7ea;
+    color: #1b6b2d;
+    font-size: 14px;
+}
+
+/* Ссылки внутри карточки должны не портить цвет и подчёркивание */
+.product-card__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Убираем старое растягивание карточек на всю ширину */
+.favorites .product-card {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+/* Отступ между сеткой и сообщением/пустым состоянием */
+.favorites .products__grid {
+    margin-top: 0;
+}

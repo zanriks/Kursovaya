@@ -99,9 +99,11 @@
                                     'buttonClass' => 'product-card__action product-card__action--add',
                                 ])
 
-                                <button class="product-card__action product-card__action--favorite">
-                                    <img src="{{ asset('img/header-icon/heart.svg') }}" alt="Избранное">
-                                </button>
+                                @include('templates.favorite-button', [
+                                    'product' => $product,
+                                    'favoriteIds' => $favoriteIds,
+                                    'buttonClass' => 'product-card__action product-card__action--favorite',
+                                ])
                             </div>
                         </li>
                     @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CartItem;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,6 +32,8 @@ class HomeController extends Controller
             $request->user()?->user_id
         );
 
-        return view('welcome', compact('categories', 'hits', 'cartItems'));
+        $favoriteIds = Favorite::idsForUser($request->user()?->user_id);
+
+        return view('welcome', compact('categories', 'hits', 'cartItems', 'favoriteIds'));
     }
 }

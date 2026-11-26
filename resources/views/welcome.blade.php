@@ -199,9 +199,12 @@
                             'buttonClass' => 'product__action product__action--add',
                         ])
 
-                        <span class="product__action product__action--favorite">
-                            <img src="{{ asset('img/icons/heart.svg') }}" alt="">
-                        </span>
+                        @include('templates.favorite-button', [
+                            'product' => $product,
+                            'favoriteIds' => $favoriteIds,
+                            'buttonClass' => 'product__action product__action--favorite',
+                            'icon' => 'img/icons/heart.svg',
+                        ])
                     </div>
                 </li>
             @empty

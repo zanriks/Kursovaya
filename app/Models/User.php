@@ -102,4 +102,9 @@ class User extends Authenticatable
     {
         return $this->isAdmin() || $this->isManager();
     }
+
+    public function favorites(): HasMany
+    {
+        return $this->hasMany(Favorite::class, 'user_id', 'user_id');
+    }
 }

@@ -362,6 +362,11 @@ body {
     min-height: 50px;
     height: fit-content;
     margin-top: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
 }
 
 .review__popular {
@@ -455,7 +460,9 @@ body {
 }
 
 a.review__add-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     box-sizing: border-box;
 }
