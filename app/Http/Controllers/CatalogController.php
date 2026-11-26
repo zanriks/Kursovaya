@@ -132,7 +132,8 @@ class CatalogController extends Controller
             'category',
             'products',
             'manufacturers',
-            'cartItems'
+            'cartItems',
+            'favoriteIds'
         ));
     }
 
